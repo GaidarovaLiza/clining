@@ -1,10 +1,10 @@
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
-import { IncDecButton } from "../components/IncDecButton";
-import { DefaultButton } from "../components/defaultButton/DefaultButton";
-import { Typography } from "../components/typography/Typography";
 
 import style from "./AddCountForm.module.scss";
 import { useState } from "react";
+import { IncDecButton } from "../../components/IncDecButton";
+import { Typography } from "../../components/typography/Typography";
+import { DefaultButton } from "../../components/defaultButton/DefaultButton";
 
 export const AddCountForm = () => {
   let [roomCount, setRoomCount] = useState(1);

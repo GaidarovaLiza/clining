@@ -1,6 +1,7 @@
 import style from "./App.module.css";
 import { Main } from "./pages/main/Main";
-import { AddCountForm } from "./views/AddCountForm";
+import { AddCountForm } from "./views/AddCountForm/AddCountForm";
+import { Tariffs } from "./views/Tariffs/Tariffs";
 import { Header } from "./views/header/Header";
 
 function App() {
@@ -9,6 +10,7 @@ function App() {
       <Header />
       <Main />
       <AddCountForm />
+      <Tariffs/>
     </div>
   );
 }
