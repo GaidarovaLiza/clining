@@ -1,10 +1,10 @@
-import { Tabs } from './Tabs/Tabs'
-import style from './Tariffs.module.scss'
+import { GeneralClining } from './GeneralClining/GeneralClinig';
+import style from './Tariffs.module.scss';
 
 export const Tariffs = () => {
     return (
         <div className={style.wrapper}>
-            <Tabs/>
+            <GeneralClining />
         </div>
-    )
-}
+    );
+};
