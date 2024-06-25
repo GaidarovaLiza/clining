@@ -1,5 +1,5 @@
-import { ReactNode, useMemo } from "react";
-import style from "./DefaultButton.module.scss";
+import { ReactNode, useMemo } from 'react';
+import style from './DefaultButton.module.scss';
 
 export type ButtonProps = {
   className?: string;
@@ -8,9 +8,9 @@ export type ButtonProps = {
   isBorder?: boolean;
   loading?: boolean;
   onClick?: () => void;
-  size?: "small" | "medium" | "huge";
+  size?: 'small' | 'medium' | 'huge';
   text?: string;
-  variant: "fulfilled" | "outlined" | "withOutBorder";
+  variant: 'fulfilled' | 'outlined' | 'withOutBorder';
 };
 
 export const DefaultButton = ({
@@ -20,39 +20,35 @@ export const DefaultButton = ({
   isBorder = true,
   loading = false,
   onClick,
-  size = "medium",
+  size = 'medium',
   text,
-  variant = "fulfilled",
+  variant = 'fulfilled',
 }: ButtonProps) => {
   const sizeStyles = useMemo(() => {
     switch (size) {
-      case "small":
+      case 'small':
         return {
-          height: "40px",
-          padding: !icon ? "16px 20px" : "15px 15px 15px 10px",
+          height: '40px',
+          padding: !icon ? '16px 20px' : '15px 15px 15px 10px',
         };
-      case "medium":
+      case 'medium':
         return {
-          height: "55px",
-          padding: !icon ? "18.5px 20px" : "18.5px 15px 18.5px 10px",
+          height: '55px',
+          padding: !icon ? '18.5px 20px' : '18.5px 15px 18.5px 10px',
         };
-      case "huge":
+      case 'huge':
         return {
-          height: "60px",
-          padding: `25px ${icon ? "25px" : "30px"} 25px ${
-            icon ? "25px" : "30px"
-          }`,
+          height: '60px',
+          padding: `25px ${icon ? '25px' : '30px'} 25px ${icon ? '25px' : '30px'}`,
         };
     }
   }, [icon, size]);
 
   return (
     <>
-      {variant === "fulfilled" && (
+      {variant === 'fulfilled' && (
         <button
-          className={`${style.button} ${style.buttonFulfilled} ${
-            className || ""
-          }`}
+          className={`${style.button} ${style.buttonFulfilled} ${className || ''}`}
           disabled={disabled || loading}
           onClick={onClick}
           style={{ ...sizeStyles }}
@@ -61,11 +57,9 @@ export const DefaultButton = ({
           {icon && icon}
         </button>
       )}
-      {variant === "outlined" && (
+      {variant === 'outlined' && (
         <button
-          className={`${style.button} ${style.buttonOutlined} ${
-            className || ""
-          }`}
+          className={`${style.button} ${style.buttonOutlined} ${className || ''}`}
           data-is-border={isBorder}
           disabled={disabled || loading}
           onClick={onClick}
@@ -75,11 +69,9 @@ export const DefaultButton = ({
           {icon && icon}
         </button>
       )}
-      {variant === "withOutBorder" && (
+      {variant === 'withOutBorder' && (
         <button
-          className={`${style.button} ${style.withOutBorder} ${
-            className || ""
-          }`}
+          className={`${style.button} ${style.withOutBorder} ${className || ''}`}
           disabled={disabled || loading}
           onClick={onClick}
         >
