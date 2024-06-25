@@ -33,8 +33,8 @@ export const DefaultButton = ({
         };
       case "medium":
         return {
-          height: "45px",
-          padding: !icon ? "13.5px 20px" : "12.5px 15px 12.5px 10px",
+          height: "55px",
+          padding: !icon ? "18.5px 20px" : "18.5px 15px 18.5px 10px",
         };
       case "huge":
         return {
