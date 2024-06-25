@@ -1,4 +1,4 @@
-import style from "./Icon.module.scss";
+import style from './Icon.module.scss';
 
 type IconType = {
   src: string;

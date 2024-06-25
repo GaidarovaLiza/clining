@@ -30,7 +30,7 @@
   color: #2b5de6;
   background-color: white;
 
-  &[data-is-border="true"] {
+  &[data-is-border='true'] {
     border: 1px solid #2b5de6;
 
     &:hover:not([disabled]) {
