@@ -1,7 +1,7 @@
 import { Routes, Route, Navigate } from 'react-router-dom';
 import { lazy } from 'react';
 
-const SendForm = lazy(() => import('../views/SendForm/SendForm'));
+const SendForm = lazy(() => import('../views/sendForm/SendForm'));
 
 export const RoutesSwitch = () => {
   return (
