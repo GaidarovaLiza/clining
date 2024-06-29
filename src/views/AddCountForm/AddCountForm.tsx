@@ -16,7 +16,7 @@ export const AddCountForm = () => {
   };
 
   const decreaseRoomCount = () => {
-    setRoomCount(roomCount - 1);
+    roomCount === 1 ? setRoomCount(1) : setRoomCount(roomCount - 1);
   };
 
   const increaseBathRoomCount = () => {
@@ -24,7 +24,7 @@ export const AddCountForm = () => {
   };
 
   const decreaseBathRoomCount = () => {
-    setBathRoomCount(bathRoomCount - 1);
+    bathRoomCount === 1 ? setBathRoomCount(1) : setBathRoomCount(bathRoomCount - 1);
   };
 
   const handleCalculate = () => {
