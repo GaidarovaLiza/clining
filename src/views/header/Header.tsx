@@ -30,21 +30,12 @@ const iconData = [
 export const Header = () => {
   const [openDrower, setOpenDrower] = useState(false);
 
-  const isDraweropen = (isOpen: boolean) => {
-    console.log(isOpen);
-    setOpenDrower(isOpen);
-  };
-
   return (
     <>
       <AppBar position="static">
-        <Drawer anchor="right" variant="temporary" open={openDrower} onClose={() => isDraweropen(false)}>
+        <Drawer anchor="right" variant="temporary" open={openDrower} onClose={() => setOpenDrower(false)}>
           <Box>
-            <Paper className={style.paper}>
-              <IconButton color="default" edge="start" aria-label="close drawer" onClick={() => isDraweropen(false)}>
-                <CloseIcon className={style.buttonClose} fontSize="large" />
-              </IconButton>
-            </Paper>
+            <Paper className={style.paper}></Paper>
           </Box>
         </Drawer>
       </AppBar>
@@ -59,7 +50,7 @@ export const Header = () => {
               className={openDrower ? style.hideMenu : ''}
               color="default"
               aria-label="open drawer"
-              onClick={() => isDraweropen(!openDrower)}
+              onClick={() => setOpenDrower(!openDrower)}
               sx={{ mr: 2, display: { xs: 'block', sm: 'none' } }}
             >
               <MenuIcon fontSize="large" />
