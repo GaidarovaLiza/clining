@@ -27,9 +27,35 @@ export const AddCountForm = () => {
     bathRoomCount === 1 ? setBathRoomCount(1) : setBathRoomCount(bathRoomCount - 1);
   };
 
+
   const handleCalculate = () => {
     navigate('/send-form');
   };
+
+  const exception = [11, 12, 13, 14];
+  const nominativePlural = [2, 3, 4];
+  const genetivePlural = [5, 6, 7, 8, 9, 0];
+
+  const declineBathroom = () => {
+    if (exception.includes(bathRoomCount)) return 'Санузлов';
+
+    const ending = bathRoomCount % 10;
+
+    if (ending === 1) return 'Санузел';
+    if (nominativePlural.includes(ending)) return 'Санузла';
+    if (genetivePlural.includes(ending)) return 'Санузлов';
+  };
+
+  const declineRoom = () => {
+    if (exception.includes(roomCount)) return 'Комнат';
+
+    const ending = roomCount % 10;
+
+    if (ending === 1) return 'Комната';
+    if (nominativePlural.includes(ending)) return 'Комнаты';
+    if (genetivePlural.includes(ending)) return 'Комнат';
+  };
+
 
   return (
     <form className={style.form}>
@@ -37,7 +63,7 @@ export const AddCountForm = () => {
         <IncDecButton onClick={decreaseRoomCount} content="-" />
         <div className={style.text}>
           <Typography className={style.typographyText} children={roomCount} variant={'h2'} />
-          <Typography children={'Комната'} variant={'h2'} />
+          <Typography children={declineRoom()} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseRoomCount} content="+" />
       </div>
@@ -45,7 +71,7 @@ export const AddCountForm = () => {
         <IncDecButton onClick={decreaseBathRoomCount} content="-" />
         <div className={style.text}>
           <Typography className={style.typographyText} children={bathRoomCount} variant={'h2'} />
-          <Typography children={'Санузел'} variant={'h2'} />
+          <Typography children={declineBathroom()} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
