@@ -1,15 +1,17 @@
-import style from './Header.module.scss';
+import { useState } from 'react';
+import { AppBar, Box, Drawer, IconButton, Link, Paper } from '@mui/material';
+import MenuIcon from '@mui/icons-material/Menu';
+
 import { Icon } from './Icon/Icon';
 import loonIcon from '../../assets/loon-icon.svg';
 import viberIcon from '../../assets/viber-icon.svg';
 import whatsApp from '../../assets/whatsapp-icon.svg';
 import { Typography } from '../../components/typography/Typography';
-import { Link, Paper } from '@mui/material';
-import { AppBar, Box, Drawer, IconButton, Toolbar } from '@mui/material';
-import CloseIcon from '@mui/icons-material/Close';
-import MenuIcon from '@mui/icons-material/Menu';
-import { useState } from 'react';
-const iconData = [
+import { MobileContent } from './mobileContent/MobileContent';
+
+import style from './Header.module.scss';
+
+export const iconData = [
   {
     src: loonIcon,
     href: 'https://t.me',
@@ -35,14 +37,21 @@ export const Header = () => {
       <AppBar position="static">
         <Drawer anchor="right" variant="temporary" open={openDrower} onClose={() => setOpenDrower(false)}>
           <Box>
-            <Paper className={style.paper}></Paper>
+            <Paper
+              sx={{
+                boxShadow: 'none',
+              }}
+              className={style.paper}
+            >
+              <MobileContent />
+            </Paper>
           </Box>
         </Drawer>
       </AppBar>
       <div className={style.wrapper}>
         <div className={style.container}>
           <div className={style.logo}>
-            <Typography className={style.mobileContent} children={'LOGO'} variant="h1" />
+            <Typography className={openDrower ? style.mobileContent : ''} children={'LOGO'} variant="h1" />
           </div>
           <div className={style.iconContainer}>
             <IconButton
