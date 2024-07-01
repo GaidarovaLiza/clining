@@ -1,5 +1,7 @@
 import { useMemo } from 'react';
 import { InitialColumnsType, Table } from '../../../components/table/Table';
+import { Typography } from '../../../components/typography/Typography';
+import style from './GeneralClining.module.scss';
 
 type RowType = {
   id: string;
@@ -53,6 +55,12 @@ export const GeneralClining = () => {
 
   return (
     <>
+      <div className={style.textWrapper}>
+        <Typography variant="h1">Генеральная уборка</Typography>
+        <Typography className={style.subTitle} variant="h2">
+          Влажная и сухая уборка квартиры, бытовой техники, шкафов, лоджии
+        </Typography>
+      </div>
       <Table<RowType> initialColumns={initialColumns} rows={data} />
     </>
   );
