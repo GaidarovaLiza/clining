@@ -45,7 +45,7 @@ export const Table = <T extends Type>({ initialColumns, rows }: TableProps<T>) =
                 const cell = row[column.data];
                 return (
                   <TableCell className={style.cell} component={'th'} key={column.label} padding={'none'} scope="row">
-                    <Typography variant={'regular'}>{cell}</Typography>
+                    <Typography variant={'medium'}>{cell}</Typography>
                   </TableCell>
                 );
               })}
