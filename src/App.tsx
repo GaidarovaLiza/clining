@@ -1,10 +1,10 @@
 import style from './App.module.css';
 import { Main } from './pages/main/Main';
-import { AddCountForm } from './views/addCountForm/AddCountForm';
 import { Tariffs } from './views/Tariffs/Tariffs';
 import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom';
 import SendForm from './views/sendForm/SendForm';
 import { Header } from './views/header/Header';
+import AddCountForm from './views/addCountForm/AddCountForm';
 
 function App() {
   return (

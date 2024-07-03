@@ -6,7 +6,7 @@ import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
 
-export const AddCountForm = () => {
+const AddCountForm = () => {
   let [roomCount, setRoomCount] = useState(1);
   let [bathRoomCount, setBathRoomCount] = useState(1);
   const navigate = useNavigate();
@@ -26,7 +26,6 @@ export const AddCountForm = () => {
   const decreaseBathRoomCount = () => {
     bathRoomCount === 1 ? setBathRoomCount(1) : setBathRoomCount(bathRoomCount - 1);
   };
-
 
   const handleCalculate = () => {
     navigate('/send-form');
@@ -55,7 +54,6 @@ export const AddCountForm = () => {
     if (nominativePlural.includes(ending)) return 'Комнаты';
     if (genetivePlural.includes(ending)) return 'Комнат';
   };
-
 
   return (
     <form className={style.form}>
@@ -86,3 +84,5 @@ export const AddCountForm = () => {
     </form>
   );
 };
+
+export default AddCountForm;

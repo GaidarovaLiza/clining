@@ -29,14 +29,18 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+}
 
-  @media (width < 450px) {
+@media (max-width: 449px) {
+  :global(.css-a5rdam-MuiGrid-root > .MuiGrid-item) {
     padding-left: 0px;
     margin-left: 0px;
     width: 200px;
   }
+}
 
-  @media (width < 400px) {
+@media (max-width: 399px) {
+  :global(.css-a5rdam-MuiGrid-root > .MuiGrid-item) {
     padding-left: 0px;
     margin-left: 0px;
     width: 180px;
