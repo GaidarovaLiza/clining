@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/clining/static/css/main.f9cc48a6.css",
+    "main.js": "/clining/static/js/main.49c924bb.js",
+    "static/js/919.a454d47e.chunk.js": "/clining/static/js/919.a454d47e.chunk.js",
+    "static/media/gostinaya-59-2.jpg": "/clining/static/media/gostinaya-59-2.2a1e78dc714351277cbc.jpg",
+    "static/media/stove.png": "/clining/static/media/stove.aad3573d09fdce3eac27.png",
+    "static/media/balcony.png": "/clining/static/media/balcony.fc306685640f714816f6.png",
+    "static/media/dish.png": "/clining/static/media/dish.30fff7a9209bcb4fd174.png",
+    "static/media/window.png": "/clining/static/media/window.4dca7b84524e75a97ab3.png",
+    "static/media/microwave.png": "/clining/static/media/microwave.1a46b45da6bacd98e979.png",
+    "static/media/cat.png": "/clining/static/media/cat.207df25e157f734e9967.png",
+    "static/media/iron.png": "/clining/static/media/iron.2a1387e7901d70d6cf01.png",
+    "static/media/oven.png": "/clining/static/media/oven.10c505440dcea5b9f3d8.png",
+    "static/media/viber-icon.svg": "/clining/static/media/viber-icon.6b3ea90c583ef01cc77319f22fd5179e.svg",
+    "static/media/whatsapp-icon.svg": "/clining/static/media/whatsapp-icon.ac42977d65753b21c1e31bd3d86343b4.svg",
+    "static/media/loon-icon.svg": "/clining/static/media/loon-icon.95b14fb0973b453fd11bb9c96a7807dc.svg",
+    "index.html": "/clining/index.html",
+    "main.f9cc48a6.css.map": "/clining/static/css/main.f9cc48a6.css.map",
+    "main.49c924bb.js.map": "/clining/static/js/main.49c924bb.js.map",
+    "919.a454d47e.chunk.js.map": "/clining/static/js/919.a454d47e.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f9cc48a6.css",
+    "static/js/main.49c924bb.js"
+  ]
+}
