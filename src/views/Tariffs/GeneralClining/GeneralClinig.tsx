@@ -54,7 +54,7 @@ export const GeneralClining = () => {
   }, []);
 
   return (
-    <>
+    <div>
       <div className={style.textWrapper}>
         <Typography variant="h1">Генеральная уборка</Typography>
         <Typography className={style.subTitle} variant="h2">
@@ -62,6 +62,6 @@ export const GeneralClining = () => {
         </Typography>
       </div>
       <Table<RowType> initialColumns={initialColumns} rows={data} />
-    </>
+    </div>
   );
 };
