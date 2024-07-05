@@ -1,0 +1,58 @@
+.chips {
+  position: relative;
+  display: flex;
+  width: 100%;
+  gap: 8px;
+  padding: 8px;
+  border: 1px solid #e3e9f7;
+  background: #fff;
+  border-radius: 15px;
+
+  &_disabled {
+    background-color: #e3e9f7;
+
+    :global(.MuiChip-root) {
+      border: 1px solid #f1f5ff;
+    }
+  }
+
+  &_filled {
+    padding-top: 28px;
+  }
+
+  &__field {
+    flex-grow: 1;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+  }
+
+  &__label {
+    position: absolute;
+    transform: translate(15px, 16px);
+    top: 0;
+    left: 0;
+    color: #949eb7;
+    font-size: 14px;
+    line-height: 20px;
+    z-index: 1;
+    transition: transform 0.25s;
+
+    .chips_filled & {
+      font-size: 12px;
+      line-height: 14px;
+      transform: translate(9px, 9px);
+    }
+  }
+
+  &__controls {
+    display: flex;
+    align-items: flex-end;
+  }
+
+  // TODO: change after icons refactor
+  .chips__addButton {
+    padding: 8px;
+    background-color: transparent;
+  }
+}

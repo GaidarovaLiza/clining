@@ -5,6 +5,7 @@ import { IncDecButton } from '../../components/increseDecreseButton/IncDecButton
 import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
+import { AddAdditionslForm } from '../addAdditionForm/AddAdditionalForm';
 
 const AddCountForm = () => {
   let [roomCount, setRoomCount] = useState(1);
@@ -73,6 +74,10 @@ const AddCountForm = () => {
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
+      <div>
+        <AddAdditionslForm />
+      </div>
+
       <DefaultButton
         className={style.button}
         text="Рассчитать"
