@@ -56,15 +56,4 @@
   padding: 10px 0;
   color: #2b5de6;
   background-color: white;
-
-  > svg > path {
-    stroke: #2b5de6;
-    fill: #2b5de6;
-  }
-
-  .editText {
-    @media (width < 425px) {
-      display: none;
-    }
-  }
 }
