@@ -58,28 +58,26 @@ const AddCountForm = () => {
 
   return (
     <form className={style.form}>
-      <div className={style.content}>
+      <div className={style.form_content}>
         <IncDecButton onClick={decreaseRoomCount} content="-" />
-        <div className={style.text}>
-          <Typography className={style.typographyText} children={roomCount} variant={'h2'} />
+        <div className={style.form_text}>
+          <Typography className={style.form_typographyText} children={roomCount} variant={'h2'} />
           <Typography children={declineRoom()} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseRoomCount} content="+" />
       </div>
-      <div className={style.content}>
+      <div className={style.form_content}>
         <IncDecButton onClick={decreaseBathRoomCount} content="-" />
-        <div className={style.text}>
-          <Typography className={style.typographyText} children={bathRoomCount} variant={'h2'} />
+        <div className={style.form_text}>
+          <Typography className={style.form_typographyText} children={bathRoomCount} variant={'h2'} />
           <Typography children={declineBathroom()} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
-      <div>
-        <AddAdditionslForm />
-      </div>
+      <AddAdditionslForm />
 
       <DefaultButton
-        className={style.button}
+        className={style.form_button}
         text="Рассчитать"
         variant="fulfilled"
         icon={<ArrowForwardIcon />}

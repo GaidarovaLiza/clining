@@ -1,7 +1,7 @@
 .chips {
   position: relative;
   display: flex;
-  width: 100%;
+  width: 52%;
   gap: 8px;
   padding: 8px;
   border: 1px solid #e3e9f7;
@@ -54,5 +54,9 @@
   .chips__addButton {
     padding: 8px;
     background-color: transparent;
+  }
+
+  @media (width < 700px) {
+    width: 100%;
   }
 }
