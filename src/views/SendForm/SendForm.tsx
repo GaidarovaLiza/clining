@@ -34,12 +34,10 @@ const SendForm = () => {
         children={'Заполните контактные данные и наш оператор свяжется с Вами для уточнения деталей.'}
         variant="h2"
       />
-      <div className={style.inputs}>
-        <Input label="Ваше имя" onChange={handleNameChange} value={name} variant="outlined" key={1} />
-        <Input label="Контактный телефон" onChange={handlePhoneChange} value={phone} variant="outlined" key={2} />
-        <Input label="Адрес" onChange={handleAddressChange} value={address} variant="outlined" key={3} />
-        <DefaultButton variant="fulfilled" text="Отправить" size="medium" className={style.button} />
-      </div>
+      <Input label="Ваше имя" onChange={handleNameChange} value={name} variant="outlined" key={1} />
+      <Input label="Контактный телефон" onChange={handlePhoneChange} value={phone} variant="outlined" key={2} />
+      <Input label="Адрес" onChange={handleAddressChange} value={address} variant="outlined" key={3} />
+      <DefaultButton variant="fulfilled" text="Отправить" size="medium" className={style.button} />
     </form>
   );
 };

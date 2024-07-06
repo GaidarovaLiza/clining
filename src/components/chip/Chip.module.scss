@@ -1,0 +1,30 @@
+.muiChip {
+  &:global(.MuiChip-root) {
+    border-radius: 10px;
+    background-color: #e3e9f7;
+    height: 36px;
+
+    .muiChip__label {
+      font-size: 13px;
+      color: #293d70;
+      line-height: 20px;
+    }
+  }
+
+  &_avatar:global(.MuiChip-root) {
+    height: 39px;
+
+    .muiChip__avatar {
+      margin-left: 13px;
+    }
+  }
+}
+
+.deleteIcon {
+  .muiChip_avatar &:global(.MuiChip-deleteIcon) {
+    margin-right: 9px;
+  }
+  path {
+    stroke: #293d70;
+  }
+}
