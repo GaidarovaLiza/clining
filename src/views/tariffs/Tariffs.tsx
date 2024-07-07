@@ -1,5 +1,5 @@
-import { AdditionalItems } from './AdditionalItems/AdditionalItems';
-import { GeneralClining } from './GeneralClining/GeneralClinig';
+import { AdditionalItems } from './additionalItems/AdditionalItems';
+import { GeneralClining } from './generalClining/GeneralClinig';
 import style from './Tariffs.module.scss';
 
 export const Tariffs = () => {
