@@ -5,6 +5,11 @@
   align-items: center;
 }
 
+.grid {
+  display: flex;
+  justify-content: center;
+}
+
 .img {
   width: 130px;
   height: 110px;
@@ -14,18 +19,20 @@
   }
 }
 
-.textColor {
+.text {
+  text-align: center;
   color: #2b5de6;
 }
 
 :global(.css-a5rdam-MuiGrid-root) {
+  margin: 0;
   @media (width < 550px) {
     width: 100%;
   }
 }
 
 :global(.css-a5rdam-MuiGrid-root > .MuiGrid-item) {
-  padding: 0 8px;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
