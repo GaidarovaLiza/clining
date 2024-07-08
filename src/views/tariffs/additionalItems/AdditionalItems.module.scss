@@ -38,7 +38,15 @@
   align-items: center;
 }
 
-@media (max-width: 449px) {
+@media (width < 500px) {
+  :global(.css-a5rdam-MuiGrid-root > .MuiGrid-item) {
+    padding-left: 0px;
+    margin-left: 0px;
+    width: 220px;
+  }
+}
+
+@media (width < 449px) {
   :global(.css-a5rdam-MuiGrid-root > .MuiGrid-item) {
     padding-left: 0px;
     margin-left: 0px;
