@@ -6,6 +6,7 @@ import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
 import { AddAdditionslForm } from '../addAdditionForm/AddAdditionalForm';
+import { SelectClining } from './selectClining/SelectClining';
 
 const AddCountForm = () => {
   let [roomCount, setRoomCount] = useState(1);
@@ -74,6 +75,7 @@ const AddCountForm = () => {
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
+      <SelectClining />
       <AddAdditionslForm />
 
       <DefaultButton
