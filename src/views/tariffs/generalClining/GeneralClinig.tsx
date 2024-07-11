@@ -1,6 +1,7 @@
-import { useMemo } from 'react';
+import { useContext, useMemo } from 'react';
 import { InitialColumnsType, Table } from '../../../components/table/Table';
 import { Typography } from '../../../components/typography/Typography';
+import { ScrollContext } from '../../../context/ScrollContext';
 import style from './GeneralClining.module.scss';
 
 type RowType = {
@@ -10,6 +11,7 @@ type RowType = {
 };
 
 export const GeneralClining = () => {
+  const generalCleaningRef = useContext(ScrollContext);
   const initialColumns = useMemo(() => {
     const res: Array<InitialColumnsType<RowType>> = [
       { label: 'Количество комнат', data: 'room', width: 600 },
@@ -55,7 +57,7 @@ export const GeneralClining = () => {
 
   return (
     <div>
-      <div className={style.textWrapper}>
+      <div ref={generalCleaningRef} className={style.textWrapper}>
         <Typography variant="h1">Генеральная уборка</Typography>
         <Typography className={style.subTitle} variant="h2">
           Влажная и сухая уборка квартиры, бытовой техники, шкафов, лоджии
