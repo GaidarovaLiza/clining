@@ -1,10 +1,15 @@
 import { Typography } from '../../../components/typography/Typography';
-import style from './MobileContent.module.scss';
 import { iconData } from '../Header';
 import { Link } from '@mui/material';
 import { Icon } from '../Icon/Icon';
+import style from './MobileContent.module.scss';
 
-export const MobileContent = () => {
+interface MobileContent {
+  onScrollDownToGeneralCleaning: () => void;
+  onScrollDownToAdditionItems: () => void;
+}
+
+export const MobileContent = ({ onScrollDownToGeneralCleaning, onScrollDownToAdditionItems }: MobileContent) => {
   return (
     <div className={style.wrapper}>
       <div className={style.wrapper_block}>
@@ -24,7 +29,12 @@ export const MobileContent = () => {
         <Typography variant="h2">Наши услуги:</Typography>
       </div>
       <Link>
-        <Typography className={style.wrapper_padding} variant="h3">
+        <Typography
+          isCursorPointer={true}
+          onClick={onScrollDownToGeneralCleaning}
+          className={style.wrapper_padding}
+          variant="h3"
+        >
           Генеральная уборка
         </Typography>
       </Link>
@@ -34,7 +44,12 @@ export const MobileContent = () => {
         </Typography>
       </Link>
       <Link>
-        <Typography className={style.wrapper_padding} variant="h3">
+        <Typography
+          className={style.wrapper_padding}
+          isCursorPointer={true}
+          onClick={onScrollDownToAdditionItems}
+          variant="h3"
+        >
           Дополнительные услуги
         </Typography>
       </Link>

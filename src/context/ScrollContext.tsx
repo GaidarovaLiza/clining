@@ -1,3 +1,8 @@
 import { createContext, RefObject } from 'react';
 
-export const ScrollContext = createContext<RefObject<HTMLDivElement> | null>(null);
+interface ScrollContextType {
+  generalCleaningRef: RefObject<HTMLDivElement>;
+  additionCleaningItems: RefObject<HTMLDivElement>;
+}
+
+export const ScrollContext = createContext<ScrollContextType | null>(null);

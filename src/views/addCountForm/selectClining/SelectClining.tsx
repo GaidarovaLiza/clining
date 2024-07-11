@@ -1,4 +1,4 @@
-import { useRef, useState, RefObject, useContext } from 'react';
+import { useState, useContext } from 'react';
 import { Checkbox } from '../../../components/checkBoxs/CheckBox';
 import { Typography } from '../../../components/typography/Typography';
 import { ScrollContext } from '../../../context/ScrollContext';
@@ -7,7 +7,7 @@ import style from './SelectClining.module.scss';
 export const SelectClining = () => {
   const [general, setGeneral] = useState(false);
   const [supportive, setSupportive] = useState(false);
-  const generalCleaningRef = useContext(ScrollContext);
+  const { generalCleaningRef } = useContext(ScrollContext)!;
 
   const scrollToGeneralClining = () => {
     generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });

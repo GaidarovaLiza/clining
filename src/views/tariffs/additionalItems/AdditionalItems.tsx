@@ -2,10 +2,13 @@ import { Grid } from '@mui/material';
 import style from './AdditionalItems.module.scss';
 import { Typography } from '../../../components/typography/Typography';
 import { iconList } from '../../../data/additionals';
+import { useContext } from 'react';
+import { ScrollContext } from '../../../context/ScrollContext';
 
 export const AdditionalItems = () => {
+  const { additionCleaningItems } = useContext(ScrollContext)!;
   return (
-    <div className={style.wrapper}>
+    <div className={style.wrapper} ref={additionCleaningItems}>
       <Typography variant="h1">Дополнительные услуги</Typography>
       <Grid className={style.grid} container spacing={1} columns={{ xs: 2, sm: 4, md: 12 }}>
         {iconList.map(icon => (

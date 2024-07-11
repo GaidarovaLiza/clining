@@ -11,7 +11,7 @@ type RowType = {
 };
 
 export const GeneralClining = () => {
-  const generalCleaningRef = useContext(ScrollContext);
+  const { generalCleaningRef } = useContext(ScrollContext)!;
   const initialColumns = useMemo(() => {
     const res: Array<InitialColumnsType<RowType>> = [
       { label: 'Количество комнат', data: 'room', width: 600 },

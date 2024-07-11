@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useState, useContext } from 'react';
 import { AppBar, Box, Drawer, IconButton, Link, Paper } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
-
+import { ScrollContext } from '../../context/ScrollContext';
 import { Icon } from './Icon/Icon';
 import loonIcon from '../../assets/loon-icon.svg';
 import viberIcon from '../../assets/viber-icon.svg';
@@ -31,6 +31,18 @@ export const iconData = [
 
 export const Header = () => {
   const [openDrower, setOpenDrower] = useState(false);
+  const { generalCleaningRef, additionCleaningItems } = useContext(ScrollContext)!;
+
+  const scrollToGeneralClining = () => {
+    setOpenDrower(false);
+    console.log('generalCleaningRef', generalCleaningRef);
+    generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
+
+  const scrollToAdditionCleaningItems = () => {
+    setOpenDrower(false);
+    additionCleaningItems?.current?.scrollIntoView({ behavior: 'smooth' });
+  };
 
   return (
     <>
@@ -43,7 +55,10 @@ export const Header = () => {
               }}
               className={style.paper}
             >
-              <MobileContent />
+              <MobileContent
+                onScrollDownToGeneralCleaning={scrollToGeneralClining}
+                onScrollDownToAdditionItems={scrollToAdditionCleaningItems}
+              />
             </Paper>
           </Box>
         </Drawer>

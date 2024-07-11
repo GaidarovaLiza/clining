@@ -10,26 +10,27 @@ import { ScrollContext } from './context/ScrollContext';
 
 function App() {
   const generalCleaningRef = useRef<HTMLDivElement>(null);
+  const additionCleaningItems = useRef<HTMLDivElement>(null);
   return (
     <div className={style.container}>
       <BrowserRouter>
-        <Header />
-        <Routes>
-          <Route
-            path="/"
-            element={
-              <>
-                <ScrollContext.Provider value={generalCleaningRef}>
+        <ScrollContext.Provider value={{ generalCleaningRef, additionCleaningItems }}>
+          <Header />
+          <Routes>
+            <Route
+              path="/"
+              element={
+                <>
                   <Main />
                   <AddCountForm />
                   <Tariffs />
-                </ScrollContext.Provider>
-              </>
-            }
-          />
-          <Route path="/send-form" element={<SendForm />} />
-          <Route path="*" element={<Navigate to="/" replace />} />
-        </Routes>
+                </>
+              }
+            />
+            <Route path="/send-form" element={<SendForm />} />
+            <Route path="*" element={<Navigate to="/" replace />} />
+          </Routes>
+        </ScrollContext.Provider>
       </BrowserRouter>
     </div>
   );
