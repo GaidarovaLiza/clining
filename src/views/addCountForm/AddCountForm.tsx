@@ -1,12 +1,13 @@
-import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
-import style from './AddCountForm.module.scss';
 import { useState } from 'react';
+import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import { IncDecButton } from '../../components/increseDecreseButton/IncDecButton';
 import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
-import { AddAdditionslForm } from '../addAdditionForm/AddAdditionalForm';
+import { AddAdditionsForm } from '../addAdditionForm/AddAdditionalForm';
 import { SelectClining } from './selectClining/SelectClining';
+
+import style from './AddCountForm.module.scss';
 
 const AddCountForm = () => {
   let [roomCount, setRoomCount] = useState(1);
@@ -76,7 +77,7 @@ const AddCountForm = () => {
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
       <SelectClining />
-      <AddAdditionslForm />
+      <AddAdditionsForm />
 
       <DefaultButton
         className={style.form_button}

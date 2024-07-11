@@ -1,10 +1,10 @@
-import React, { useCallback, useState } from 'react';
-import { Chip } from '../chip/Chip';
+import { useCallback, useState } from 'react';
+import { SvgIcon } from '@mui/material';
 import AddIcon from '@mui/icons-material/Add';
+import { Chip } from '../chip/Chip';
+import { DefaultButton } from '../defaultButton';
 
 import styles from './Chips.module.scss';
-import { DefaultButton } from '../defaultButton';
-import { SvgIcon } from '@mui/material';
 
 export interface ChipsItem {
   src?: string;

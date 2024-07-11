@@ -1,8 +1,9 @@
+import { startTransition, useState } from 'react';
 import { Input } from '../../components/Input/Input';
 import { DefaultButton } from '../../components/defaultButton/DefaultButton';
 import { Typography } from '../../components/typography/Typography';
+
 import style from './SendForm.module.scss';
-import { startTransition, useState } from 'react';
 
 const SendForm = () => {
   const [name, setName] = useState('');

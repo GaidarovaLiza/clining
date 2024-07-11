@@ -9,7 +9,7 @@ export const SelectClining = () => {
   const [supportive, setSupportive] = useState(false);
   const { generalCleaningRef } = useContext(ScrollContext)!;
 
-  const scrollToGeneralClining = () => {
+  const scrollToGeneralCleaning = () => {
     generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
@@ -20,7 +20,7 @@ export const SelectClining = () => {
         <Typography
           className={style.contentWrapper_text}
           isCursorPointer={true}
-          onClick={scrollToGeneralClining}
+          onClick={scrollToGeneralCleaning}
           variant={'h3'}
         >
           Генеральная уборка

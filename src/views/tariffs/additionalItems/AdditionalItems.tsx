@@ -1,9 +1,10 @@
+import { useContext } from 'react';
 import { Grid } from '@mui/material';
-import style from './AdditionalItems.module.scss';
 import { Typography } from '../../../components/typography/Typography';
 import { iconList } from '../../../data/additionals';
-import { useContext } from 'react';
 import { ScrollContext } from '../../../context/ScrollContext';
+
+import style from './AdditionalItems.module.scss';
 
 export const AdditionalItems = () => {
   const { additionCleaningItems } = useContext(ScrollContext)!;

@@ -30,24 +30,23 @@ export const iconData = [
 ];
 
 export const Header = () => {
-  const [openDrower, setOpenDrower] = useState(false);
+  const [openDrawer, setOpenDrawer] = useState(false);
   const { generalCleaningRef, additionCleaningItems } = useContext(ScrollContext)!;
 
-  const scrollToGeneralClining = () => {
-    setOpenDrower(false);
-    console.log('generalCleaningRef', generalCleaningRef);
+  const scrollToGeneralCleaning = () => {
+    setOpenDrawer(false);
     generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   const scrollToAdditionCleaningItems = () => {
-    setOpenDrower(false);
+    setOpenDrawer(false);
     additionCleaningItems?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
     <>
       <AppBar position="static">
-        <Drawer anchor="right" variant="temporary" open={openDrower} onClose={() => setOpenDrower(false)}>
+        <Drawer anchor="right" variant="temporary" open={openDrawer} onClose={() => setOpenDrawer(false)}>
           <Box>
             <Paper
               sx={{
@@ -56,7 +55,7 @@ export const Header = () => {
               className={style.paper}
             >
               <MobileContent
-                onScrollDownToGeneralCleaning={scrollToGeneralClining}
+                onScrollDownToGeneralCleaning={scrollToGeneralCleaning}
                 onScrollDownToAdditionItems={scrollToAdditionCleaningItems}
               />
             </Paper>
@@ -66,15 +65,15 @@ export const Header = () => {
       <div className={style.wrapper}>
         <div className={style.container}>
           <div className={style.logo}>
-            <Typography className={openDrower ? style.mobileContent : ''} children={'LOGO'} variant="h1" />
+            <Typography className={openDrawer ? style.mobileContent : ''} children={'LOGO'} variant="h1" />
           </div>
           <div className={style.iconContainer}>
             <IconButton
               edge="start"
-              className={openDrower ? style.hideMenu : ''}
+              className={openDrawer ? style.hideMenu : ''}
               color="default"
               aria-label="open drawer"
-              onClick={() => setOpenDrower(!openDrower)}
+              onClick={() => setOpenDrawer(!openDrawer)}
               sx={{ mr: 2, display: { xs: 'block', sm: 'none' } }}
             >
               <MenuIcon fontSize="large" />

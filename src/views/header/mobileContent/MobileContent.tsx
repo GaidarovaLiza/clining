@@ -1,7 +1,8 @@
+import { Link } from '@mui/material';
 import { Typography } from '../../../components/typography/Typography';
 import { iconData } from '../Header';
-import { Link } from '@mui/material';
 import { Icon } from '../Icon/Icon';
+
 import style from './MobileContent.module.scss';
 
 interface MobileContent {

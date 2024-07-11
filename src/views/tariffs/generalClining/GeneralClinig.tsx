@@ -2,6 +2,7 @@ import { useContext, useMemo } from 'react';
 import { InitialColumnsType, Table } from '../../../components/table/Table';
 import { Typography } from '../../../components/typography/Typography';
 import { ScrollContext } from '../../../context/ScrollContext';
+
 import style from './GeneralClining.module.scss';
 
 type RowType = {
@@ -10,7 +11,7 @@ type RowType = {
   price: string;
 };
 
-export const GeneralClining = () => {
+export const GeneralCleaning = () => {
   const { generalCleaningRef } = useContext(ScrollContext)!;
   const initialColumns = useMemo(() => {
     const res: Array<InitialColumnsType<RowType>> = [

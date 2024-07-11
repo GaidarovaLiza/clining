@@ -1,6 +1,7 @@
 import { ReactNode } from 'react';
 import { Table as MuiTable, TableBody, TableCell, TableHead, TableRow } from '@mui/material';
 import { Typography } from '../typography/Typography';
+
 import style from './Table.module.scss';
 
 export type InitialColumnsType<T extends Type> = {

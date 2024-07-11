@@ -1,5 +1,6 @@
+import { useMemo } from 'react';
 import { Button } from '@mui/material';
-import React, { useMemo } from 'react';
+
 import styles from './IncDecButton.module.css';
 
 type ButtonProps = {

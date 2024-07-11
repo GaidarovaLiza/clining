@@ -1,8 +1,9 @@
+import { ReactElement } from 'react';
 import { Avatar, SvgIcon } from '@mui/material';
 import MuiChip, { ChipProps as MuiChipProps } from '@mui/material/Chip';
-import { ReactElement } from 'react';
 import DeleteIcon from '@mui/icons-material/Delete';
 import AddIcon from '@mui/icons-material/Add';
+
 import style from './Chip.module.scss';
 
 export interface ChipProps extends MuiChipProps {
