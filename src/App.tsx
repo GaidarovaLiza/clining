@@ -10,11 +10,12 @@ import { ScrollContext } from './context/ScrollContext';
 
 function App() {
   const generalCleaningRef = useRef<HTMLDivElement>(null);
+  const maintenanceCleaningRef = useRef<HTMLDivElement>(null);
   const additionCleaningItems = useRef<HTMLDivElement>(null);
   return (
     <div className={style.container}>
       <BrowserRouter>
-        <ScrollContext.Provider value={{ generalCleaningRef, additionCleaningItems }}>
+        <ScrollContext.Provider value={{ generalCleaningRef, maintenanceCleaningRef, additionCleaningItems }}>
           <Header />
           <Routes>
             <Route
