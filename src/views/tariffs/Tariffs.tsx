@@ -8,11 +8,12 @@ export const Tariffs = () => {
   return (
     <div className={style.wrapper}>
       <div className={style.wrapperTables}>
-        <GeneralCleaning />
-      </div>
-      <div className={style.wrapperTables}>
         <MaintenanceCleaning />
       </div>
+      <div className={style.wrapperTables}>
+        <GeneralCleaning />
+      </div>
+      
       <AdditionalItems />
     </div>
   );
