@@ -3,7 +3,7 @@ import style from './Icon.module.scss';
 type IconType = {
   src: string;
   alt: string;
-  href: string;
+  href?: string;
   className?: string;
 };
 
