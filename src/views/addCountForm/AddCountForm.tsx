@@ -4,14 +4,13 @@ import { IncDecButton } from '../../components/increseDecreseButton/IncDecButton
 import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
-import { AddAdditionsForm } from '../addAdditionForm/AddAdditionalForm';
-import { SelectClining } from './selectClining/SelectClining';
+import { useRoomCountStore } from '../../store/store';
 
 import style from './AddCountForm.module.scss';
 
 const AddCountForm = () => {
-  let [roomCount, setRoomCount] = useState(1);
-  let [bathRoomCount, setBathRoomCount] = useState(1);
+  const { roomCount, setRoomCount, bathRoomCount, setBathRoomCount, calculateMaintenancePrice } = useRoomCountStore();
+
   const navigate = useNavigate();
 
   const increaseRoomCount = () => {
@@ -31,6 +30,7 @@ const AddCountForm = () => {
   };
 
   const handleCalculate = () => {
+    calculateMaintenancePrice();
     navigate('/send-form');
   };
 
@@ -76,9 +76,6 @@ const AddCountForm = () => {
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
-      <SelectClining />
-      <AddAdditionsForm />
-
       <DefaultButton
         className={style.form_button}
         text="Рассчитать"
