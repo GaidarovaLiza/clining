@@ -3,10 +3,10 @@
   flex-direction: column;
   gap: 15px;
   position: absolute;
-  margin-top: 18%;
-  width: 85vw;
-
   align-items: center;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 85vw;
 
   @media (width < 1100px) {
     display: flex;
@@ -50,12 +50,11 @@
   }
 
   &_button {
-    font-size: 1.4vw;
-    border: none;
+    font-size: 24px;
+    width: 54%;
 
-    @media (width < 1100px) {
-      width: 350px;
-      font-size: 24px;
+    @media (width < 700px) {
+      width: 100%;
     }
   }
 }
