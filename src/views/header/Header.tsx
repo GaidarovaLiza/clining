@@ -6,6 +6,7 @@ import { Icon } from './Icon/Icon';
 import loonIcon from '../../assets/loon-icon.svg';
 import viberIcon from '../../assets/viber-icon.svg';
 import whatsApp from '../../assets/whatsapp-icon.svg';
+import logo from '../../assets/logo.png';
 import { Typography } from '../../components/typography/Typography';
 import { MobileContent } from './mobileContent/MobileContent';
 
@@ -65,7 +66,11 @@ export const Header = () => {
       <div className={style.wrapper}>
         <div className={style.container}>
           <div className={style.logo}>
-            <Typography className={openDrawer ? style.mobileContent : ''} children={'LOGO'} variant="h1" />
+            {openDrawer ? (
+              <div className={style.mobileContent}></div>
+            ) : (
+              <Icon className={style.logoImg} src={logo} alt={'Logo'} />
+            )}
           </div>
           <div className={style.iconContainer}>
             <IconButton
