@@ -5,6 +5,7 @@ import { Typography } from '../../components/typography/Typography';
 import { useNavigate } from 'react-router-dom';
 import { DefaultButton } from '../../components/defaultButton';
 import { useRoomCountStore } from '../../store/store';
+import { declineRoom, declineBathroom } from '../../utils';
 
 import style from './AddCountForm.module.scss';
 
@@ -34,37 +35,13 @@ const AddCountForm = () => {
     navigate('/send-form');
   };
 
-  const exception = [11, 12, 13, 14];
-  const nominativePlural = [2, 3, 4];
-  const genetivePlural = [5, 6, 7, 8, 9, 0];
-
-  const declineBathroom = () => {
-    if (exception.includes(bathRoomCount)) return 'Санузлов';
-
-    const ending = bathRoomCount % 10;
-
-    if (ending === 1) return 'Санузел';
-    if (nominativePlural.includes(ending)) return 'Санузла';
-    if (genetivePlural.includes(ending)) return 'Санузлов';
-  };
-
-  const declineRoom = () => {
-    if (exception.includes(roomCount)) return 'Комнат';
-
-    const ending = roomCount % 10;
-
-    if (ending === 1) return 'Комната';
-    if (nominativePlural.includes(ending)) return 'Комнаты';
-    if (genetivePlural.includes(ending)) return 'Комнат';
-  };
-
   return (
     <form className={style.form}>
       <div className={style.form_content}>
         <IncDecButton onClick={decreaseRoomCount} content="-" />
         <div className={style.form_text}>
           <Typography className={style.form_typographyText} children={roomCount} variant={'h2'} />
-          <Typography children={declineRoom()} variant={'h2'} />
+          <Typography children={declineRoom(roomCount)} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseRoomCount} content="+" />
       </div>
@@ -72,7 +49,7 @@ const AddCountForm = () => {
         <IncDecButton onClick={decreaseBathRoomCount} content="-" />
         <div className={style.form_text}>
           <Typography className={style.form_typographyText} children={bathRoomCount} variant={'h2'} />
-          <Typography children={declineBathroom()} variant={'h2'} />
+          <Typography children={declineBathroom(bathRoomCount)} variant={'h2'} />
         </div>
         <IncDecButton onClick={increaseBathRoomCount} content="+" />
       </div>
