@@ -1,8 +1,8 @@
 import { useContext } from 'react';
 import { Grid } from '@mui/material';
-import { Typography } from '../../../components/typography/Typography';
-import { iconList } from '../../../data/additionals';
-import { ScrollContext } from '../../../context/ScrollContext';
+import { Typography } from 'components/typography/Typography';
+import { iconList } from 'data/additionals';
+import { ScrollContext } from 'context/ScrollContext';
 
 import style from './AdditionalItems.module.scss';
 

@@ -1,20 +1,19 @@
 {
   "compilerOptions": {
-    "target": "es5",
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
+    "baseUrl": ".", //  Важно: корневая директория
+    "jsx": "react-jsx",
     "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "strict": true,
-    "forceConsistentCasingInFileNames": true,
-    "noFallthroughCasesInSwitch": true,
-    "module": "esnext",
-    "moduleResolution": "node",
-    "resolveJsonModule": true,
-    "isolatedModules": true,
-    "noEmit": true,
-    "jsx": "react-jsx"
+    "paths": {
+      "views/*": ["src/views/*"], //  Добавьте "src/" перед путями
+      "pages/*": ["src/pages/*"],
+      "components/*": ["src/components/*"],
+      "context/*": ["src/context/*"],
+      "generated/*": ["src/generated/*"],
+      "store/*": ["src/store/*"],
+      "utils/*": ["src/utils/*"],
+      "assets/*": ["src/assets/*"],
+      "data/*": ["src/data/*"]
+    }
   },
   "include": ["src"]
 }

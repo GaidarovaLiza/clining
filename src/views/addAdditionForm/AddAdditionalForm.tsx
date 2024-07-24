@@ -1,5 +1,5 @@
-import { Chips } from '../../components/chips/Chips';
-import { iconList } from '../../data/additionals';
+import { Chips } from 'components/chips/Chips';
+import { iconList } from 'data/additionals';
 
 import style from './AddAdditionForm.module.scss';
 

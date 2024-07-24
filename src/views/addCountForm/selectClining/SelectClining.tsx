@@ -1,7 +1,7 @@
 import { useState, useContext } from 'react';
-import { Checkbox } from '../../../components/checkBoxs/CheckBox';
-import { Typography } from '../../../components/typography/Typography';
-import { ScrollContext } from '../../../context/ScrollContext';
+import { Checkbox } from 'components/checkBoxs/CheckBox';
+import { Typography } from 'components/typography/Typography';
+import { ScrollContext } from 'context/ScrollContext';
 import style from './SelectClining.module.scss';
 
 export const SelectClining = () => {
