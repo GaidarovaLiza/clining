@@ -1,6 +1,6 @@
 import { Link } from '@mui/material';
-import { Typography } from '../../../components/typography/Typography';
-import { iconData } from '../Header';
+import { Typography } from 'components/typography/Typography';
+import { iconData } from 'views/header/Header';
 import { Icon } from '../Icon/Icon';
 
 import style from './MobileContent.module.scss';

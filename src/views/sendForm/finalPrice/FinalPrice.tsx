@@ -1,7 +1,7 @@
-import { DefaultButton } from '../../../components/defaultButton';
-import { Typography } from '../../../components/typography/Typography';
-import { useRoomCountStore } from '../../../store/store';
-import { declineRoom, declineBathroom } from '../../../utils';
+import { DefaultButton } from 'components/defaultButton';
+import { Typography } from 'components/typography/Typography';
+import { useRoomCountStore } from 'store/store';
+import { declineRoom, declineBathroom } from 'utils/utils';
 
 import style from './FinalPrice.module.scss';
 
