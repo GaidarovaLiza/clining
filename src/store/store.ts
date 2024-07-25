@@ -1,3 +1,4 @@
+import { Dayjs } from 'dayjs';
 import { create } from 'zustand';
 
 interface RoomCountState {
@@ -8,6 +9,16 @@ interface RoomCountState {
   setBathRoomCount: (count: number) => void;
   calculateMaintenancePrice: () => void;
 }
+
+interface CalendarState {
+  selectedDate: Dayjs | null;
+  setSelectedDate: (date: Dayjs | null) => void;
+}
+
+export const useCalendarStore = create<CalendarState>((set, get) => ({
+  selectedDate: null,
+  setSelectedDate: date => set({ selectedDate: date }),
+}));
 
 export const useRoomCountStore = create<RoomCountState>((set, get) => ({
   roomCount: 1,
