@@ -5,7 +5,7 @@ import { ScrollContext } from 'context/ScrollContext';
 import { Icon } from './Icon/Icon';
 import loonIcon from 'assets/loon-icon.svg';
 import viberIcon from 'assets/viber-icon.svg';
-import whatsApp from '.assets/whatsapp-icon.svg';
+import whatsApp from 'assets/whatsapp-icon.svg';
 import logo from 'assets/logo.png';
 import { Typography } from 'components/typography/Typography';
 import { MobileContent } from './mobileContent/MobileContent';
