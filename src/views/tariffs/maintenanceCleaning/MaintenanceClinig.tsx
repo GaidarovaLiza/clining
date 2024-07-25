@@ -1,7 +1,7 @@
 import { useContext, useMemo } from 'react';
 import { InitialColumnsType, Table } from 'components/table/Table';
 import { Typography } from 'components/typography/Typography';
-import { ScrollContext } from 'context/ScrollContext';
+import { ScrollContext } from 'context//ScrollContext';
 
 import style from './MaintenanceClining.module.scss';
 
