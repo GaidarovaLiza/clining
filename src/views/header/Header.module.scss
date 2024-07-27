@@ -20,6 +20,7 @@
 
   @media (width < 600px) {
     background: none;
+    padding-top: 20px;
   }
 }
 
@@ -31,6 +32,11 @@
 .logoImg {
   height: 65px;
   width: 65px;
+
+  @media (width < 600px) {
+    height: 60px;
+    width: 60px;
+  }
 }
 
 .paper {

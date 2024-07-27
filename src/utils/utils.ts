@@ -21,3 +21,23 @@ export const declineRoom = roomCount => {
   if (nominativePlural.includes(ending)) return 'Комнаты';
   if (genetivePlural.includes(ending)) return 'Комнат';
 };
+
+export const declineChosenRoom = roomCount => {
+  if (exception.includes(roomCount)) return 'комнат';
+
+  const ending = roomCount % 10;
+
+  if (ending === 1) return 'комнаты';
+  if (nominativePlural.includes(ending)) return 'комнат';
+  if (genetivePlural.includes(ending)) return 'комнат';
+};
+
+export const declineChosenBathroom = bathRoomCount => {
+  if (exception.includes(bathRoomCount)) return 'санузлов';
+
+  const ending = bathRoomCount % 10;
+
+  if (ending === 1) return 'санузла';
+  if (nominativePlural.includes(ending)) return 'санузлов';
+  if (genetivePlural.includes(ending)) return 'санузлов';
+};
