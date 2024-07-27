@@ -1,9 +1,11 @@
 .form {
-  margin: 15%;
   display: flex;
-  gap: 70px;
   justify-content: space-between;
+  position: absolute;
   align-items: center;
+  top: 50%;
+  width: 95vw;
+  transform: translateY(-60%);
 
   @media (width < 1000px) {
     display: flex;

@@ -5,6 +5,8 @@ import { useCalendarStore } from 'store/store';
 import { StaticDatePicker } from '@mui/x-date-pickers';
 import 'dayjs/locale/ru';
 
+import style from './Calendar.module.scss';
+
 export const Calendar = () => {
   const { selectedDate, setSelectedDate } = useCalendarStore();
 
@@ -19,6 +21,7 @@ export const Calendar = () => {
   return (
     <LocalizationProvider dateAdapter={AdapterDayjs} adapterLocale="ru">
       <StaticDatePicker
+        className={style.datePicker}
         value={selectedDate}
         onChange={newValue => setSelectedDate(newValue)}
         onMonthChange={handleMonthChange}
