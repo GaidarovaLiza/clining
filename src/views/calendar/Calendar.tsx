@@ -10,8 +10,6 @@ import style from './Calendar.module.scss';
 export const Calendar = () => {
   const { selectedDate, setSelectedDate } = useCalendarStore();
 
-  console.log('selectedDate', selectedDate);
-
   const handleMonthChange = (newMonth: Dayjs) => {
     console.log('newMonth', newMonth);
   };
