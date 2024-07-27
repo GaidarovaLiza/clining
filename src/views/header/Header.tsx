@@ -67,9 +67,9 @@ export const Header = () => {
         <div className={style.container}>
           <div className={style.logo}>
             {openDrawer ? (
-              <div className={style.mobileContent}></div>
+              <div key="mobileContent" className={style.mobileContent}></div>
             ) : (
-              <Icon className={style.logoImg} src={logo} alt={'Logo'} />
+              <Icon key="logo" className={style.logoImg} src={logo} alt={'Logo'} />
             )}
           </div>
           <div className={style.iconContainer}>
@@ -87,7 +87,7 @@ export const Header = () => {
               <Typography className={style.mobileContent} children={'+375 29 181 5595'} variant="h3" />
             </Link>
             {iconData.map(icon => (
-              <Icon className={style.mobileContent} src={icon.src} alt={icon.alt} href={icon.href} />
+              <Icon key={icon.src} className={style.mobileContent} src={icon.src} alt={icon.alt} href={icon.href} />
             ))}
           </div>
         </div>

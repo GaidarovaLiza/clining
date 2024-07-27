@@ -32,20 +32,22 @@ export const Table = <T extends Type>({ initialColumns, rows }: TableProps<T>) =
                 scope="row"
                 style={headCell.width ? { width: `${headCell.width}px` } : {}}
               >
-                <Typography variant={'h2'}>{headCell.label}</Typography>
+                <Typography key={headCell.label} variant={'h2'}>
+                  {headCell.label}
+                </Typography>
               </TableCell>
             );
           })}
         </TableRow>
       </TableHead>
       <TableBody>
-        {rows.map(row => {
+        {rows.map((row, index) => {
           return (
-            <TableRow tabIndex={-1} className={style.row}>
+            <TableRow key={index} tabIndex={-1} className={style.row}>
               {initialColumns.map(column => {
                 const cell = row[column.data];
                 return (
-                  <TableCell className={style.cell} component={'th'} key={column.label} padding={'none'} scope="row">
+                  <TableCell key={column.label} className={style.cell} component={'th'} padding={'none'} scope="row">
                     <Typography variant={'medium'}>{cell}</Typography>
                   </TableCell>
                 );
