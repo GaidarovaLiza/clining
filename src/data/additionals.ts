@@ -14,7 +14,7 @@ export const iconList = [
     src: Iron,
     alt: 'iron',
     text: 'ГЛАЖКА',
-    price: '25-35 руб',
+    price: '25 руб',
     isAdded: false,
   },
   {
@@ -22,7 +22,7 @@ export const iconList = [
     src: Fridge,
     alt: 'Fridge',
     text: 'ПОМОЕМ ХОЛОДИЛЬНИК',
-    price: '25-35 руб',
+    price: '25 руб',
     isAdded: false,
   },
   {
@@ -30,7 +30,7 @@ export const iconList = [
     src: Dish,
     alt: 'Dish',
     text: 'ПОМОЕМ ПОСУДУ',
-    price: '15-30 руб',
+    price: '15 руб',
     isAdded: false,
   },
   {
@@ -38,7 +38,7 @@ export const iconList = [
     src: Balcony,
     alt: 'Balcony',
     text: 'УБОРКА БАЛКОНА',
-    price: '15-25 руб',
+    price: '20 руб',
     isAdded: false,
   },
   {
@@ -62,7 +62,7 @@ export const iconList = [
     src: Oven,
     alt: 'Oven',
     text: 'ПОМОЕМ ДУХОВКУ',
-    price: '25-30 руб',
+    price: '25 руб',
     isAdded: false,
   },
   {
@@ -79,7 +79,7 @@ export const iconList = [
     src: Window,
     alt: 'Window',
     text: 'ПОМОЕМ ОКНА',
-    price: '15 руб - 1 окно',
+    price: '15 руб',
     isAdded: false,
   },
 ];
