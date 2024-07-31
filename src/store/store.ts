@@ -8,11 +8,17 @@ interface RoomCountState {
   setRoomCount: (count: number) => void;
   setBathRoomCount: (count: number) => void;
   calculateMaintenancePrice: () => void;
+  addMaintenancePrice: (price: number) => void;
 }
 
 interface CalendarState {
   selectedDate: Dayjs | null;
   setSelectedDate: (date: Dayjs | null) => void;
+}
+
+interface AdditionalItems {
+  selectedItem: number;
+  setSelectedItem: (price: number) => void;
 }
 
 const loadFromLocalStorage = () => {
@@ -21,13 +27,17 @@ const loadFromLocalStorage = () => {
   const bathRoomCount = localStorage.getItem('bathRoomCount');
   const maintenancePrice = localStorage.getItem('maintenancePrice');
   const selectedDate = localStorage.getItem('selectedDate');
+  const selectedItem = localStorage.getItem('selectedItem');
 
-  if (roomCount && bathRoomCount && maintenancePrice && selectedDate) {
+  console.log('selectedItem LS', selectedItem);
+
+  if (roomCount && bathRoomCount && maintenancePrice && selectedDate && selectedItem) {
     return {
       roomCount: parseInt(roomCount),
       bathRoomCount: parseInt(bathRoomCount),
       maintenancePrice: parseInt(maintenancePrice),
       selectedDate: day.add(parseInt(selectedDate)),
+      selectedItem: parseInt(selectedItem),
     };
   } else {
     return {
@@ -35,11 +45,20 @@ const loadFromLocalStorage = () => {
       bathRoomCount: 1,
       maintenancePrice: 0,
       selectedDate: null,
+      selectedItem: null,
     };
   }
 };
 
 const initialState = loadFromLocalStorage();
+
+export const useAdditionalItemsStore = create<AdditionalItems>((set, get) => ({
+  selectedItem: initialState.selectedItem,
+  setSelectedItem: price => {
+    set({ selectedItem: price });
+    localStorage.setItem('selectedItem', price.toString());
+  },
+}));
 
 export const useCalendarStore = create<CalendarState>((set, get) => ({
   selectedDate: initialState.selectedDate,
@@ -62,6 +81,10 @@ export const useRoomCountStore = create<RoomCountState>((set, get) => ({
     set({ bathRoomCount: count });
     localStorage.setItem('bathRoomCount', count.toString());
     get().calculateMaintenancePrice();
+  },
+  addMaintenancePrice: price => {
+    set({ maintenancePrice: get().maintenancePrice + price });
+    localStorage.setItem('maintenancePrice', (get().maintenancePrice + price).toString());
   },
   calculateMaintenancePrice: () => {
     const { roomCount, bathRoomCount } = get();
