@@ -1,4 +1,4 @@
-import { ReactNode, useMemo } from 'react';
+import { ReactNode, useCallback, useMemo } from 'react';
 import style from './DefaultButton.module.scss';
 
 export type ButtonProps = {
@@ -44,13 +44,18 @@ export const DefaultButton = ({
     }
   }, [icon, size]);
 
+  const onClickHandler: React.MouseEventHandler<HTMLButtonElement> = useCallback(e => {
+    e.preventDefault();
+    onClick();
+  }, []);
+
   return (
     <>
       {variant === 'fulfilled' && (
         <button
           className={`${style.button} ${style.buttonFulfilled} ${className || ''}`}
           disabled={disabled || loading}
-          onClick={onClick}
+          onClick={onClickHandler}
           style={{ ...sizeStyles }}
         >
           {text && text}
@@ -62,7 +67,7 @@ export const DefaultButton = ({
           className={`${style.button} ${style.buttonOutlined} ${className || ''}`}
           data-is-border={isBorder}
           disabled={disabled || loading}
-          onClick={onClick}
+          onClick={onClickHandler}
           style={{ ...sizeStyles }}
         >
           {text && text}
@@ -73,7 +78,7 @@ export const DefaultButton = ({
         <button
           className={`${style.button} ${style.withOutBorder} ${className || ''}`}
           disabled={disabled || loading}
-          onClick={onClick}
+          onClick={onClickHandler}
         >
           {text}
         </button>
