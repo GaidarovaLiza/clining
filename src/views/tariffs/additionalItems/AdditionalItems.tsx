@@ -22,14 +22,22 @@ export const AdditionalItems = () => {
     const priceNumber = parseInt(icon.price.replace(/\s|руб/g, ''));
     console.log('priceNumber ', priceNumber);
     setSelectedItem(priceNumber);
+    console.log(selectedItem);
   };
 
   return (
     <div className={style.wrapper} ref={additionCleaningItems}>
-      <Typography variant="h1">Выберете опции для Вашей уборки:</Typography>
+      <Typography variant="h1">Выберите опции для Вашей уборки:</Typography>
       <Grid className={style.grid} container spacing={1} columns={{ xs: 2, sm: 4, md: 12 }}>
         {iconList.map(icon => (
-          <Grid key={icon.alt} item xs={0} sm={2} md={4} className={style.gridItem}>
+          <Grid
+            key={icon.alt}
+            item
+            xs={0}
+            sm={2}
+            md={4}
+            className={selectedItem ? `${style.gridItem} ${style.selectedItem}` : style.gridItem}
+          >
             <div className={style.link} onClick={() => handleClick(icon)}>
               <img className={style.img} src={icon.src} alt={icon.alt} />
               <Typography className={style.text} variant="semiBold">

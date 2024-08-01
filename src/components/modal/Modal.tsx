@@ -21,7 +21,6 @@ export interface ModalProps {
 }
 
 const Backdrop = React.forwardRef<HTMLDivElement, { open?: boolean; ownerState: any }>((props, ref) => {
-  // eslint-disable-next-line @typescript-eslint/no-unused-vars
   const { open, ownerState, ...other } = props;
   return (
     <div

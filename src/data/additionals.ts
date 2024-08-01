@@ -1,12 +1,13 @@
-import Iron from '../assets/iron.png';
+import Iron from '../assets/ironing.png';
 import Fridge from '../assets/fridge.png';
 import Dish from '../assets/dish.png';
 import Balcony from '../assets/balcony.png';
 import Cat from '../assets/cat.png';
 import Microwave from '../assets/microwave.png';
-import Oven from '../assets/oven.png';
-import Stove from '../assets/stove.png';
+import Hood from '../assets/hood.png';
+import Four from '../assets/four.png';
 import Window from '../assets/window.png';
+import Cabinets from '../assets/cabinets.png';
 
 export const iconList = [
   {
@@ -59,7 +60,7 @@ export const iconList = [
   },
   {
     id: 7,
-    src: Oven,
+    src: Four,
     alt: 'Oven',
     text: 'ПОМОЕМ ДУХОВКУ',
     price: '25 руб',
@@ -67,18 +68,25 @@ export const iconList = [
   },
   {
     id: 8,
-    src: Stove,
-    alt: 'Stove',
-    text: 'ПОМОЕМ ПЛИТУ',
-    price: '20 руб',
-    isAdded: false,
-  },
-
-  {
-    id: 9,
     src: Window,
     alt: 'Window',
     text: 'ПОМОЕМ ОКНА',
+    price: '15 руб',
+    isAdded: false,
+  },
+  {
+    id: 9,
+    src: Hood,
+    alt: 'Hood',
+    text: 'ПОМОЕМ ВЫТЯЖКУ',
+    price: '15 руб',
+    isAdded: false,
+  },
+  {
+    id: 10,
+    src: Cabinets,
+    alt: 'Cabinets',
+    text: 'УБЕРЕМ В КУХОННЫХ ШКАФАХ',
     price: '15 руб',
     isAdded: false,
   },
