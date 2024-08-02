@@ -17,46 +17,33 @@ interface CalendarState {
 }
 
 interface AdditionalItems {
-  selectedItem: number;
-  setSelectedItem: (price: number) => void;
+  selectedItemPrice: number;
+  setSelectedItemPrice: (price: number) => void;
 }
 
 const loadFromLocalStorage = () => {
-  const day = dayjs();
-  const roomCount = localStorage.getItem('roomCount');
-  const bathRoomCount = localStorage.getItem('bathRoomCount');
-  const maintenancePrice = localStorage.getItem('maintenancePrice');
-  const selectedDate = localStorage.getItem('selectedDate');
-  const selectedItem = localStorage.getItem('selectedItem');
+  const roomCountStr = localStorage.getItem('roomCount');
+  const bathRoomCountStr = localStorage.getItem('bathRoomCount');
+  const maintenancePriceStr = localStorage.getItem('maintenancePrice');
+  const selectedDateStr = localStorage.getItem('selectedDate');
+  const selectedItemPriceStr = localStorage.getItem('selectedItemPrice');
 
-  console.log('selectedItem LS', selectedItem);
-
-  if (roomCount && bathRoomCount && maintenancePrice && selectedDate && selectedItem) {
-    return {
-      roomCount: parseInt(roomCount),
-      bathRoomCount: parseInt(bathRoomCount),
-      maintenancePrice: parseInt(maintenancePrice),
-      selectedDate: day.add(parseInt(selectedDate)),
-      selectedItem: parseInt(selectedItem),
-    };
-  } else {
-    return {
-      roomCount: 1,
-      bathRoomCount: 1,
-      maintenancePrice: 0,
-      selectedDate: null,
-      selectedItem: null,
-    };
-  }
+  return {
+    roomCount: roomCountStr ? parseInt(roomCountStr) : 1,
+    bathRoomCount: bathRoomCountStr ? parseInt(bathRoomCountStr) : 1,
+    maintenancePrice: maintenancePriceStr ? parseInt(maintenancePriceStr) : 0,
+    selectedDate: selectedDateStr ? dayjs.unix(parseInt(selectedDateStr)) : null,
+    selectedItemPrice: selectedItemPriceStr ? parseInt(selectedItemPriceStr) : null,
+  };
 };
 
 const initialState = loadFromLocalStorage();
 
 export const useAdditionalItemsStore = create<AdditionalItems>((set, get) => ({
-  selectedItem: initialState.selectedItem,
-  setSelectedItem: price => {
-    set({ selectedItem: price });
-    localStorage.setItem('selectedItem', price.toString());
+  selectedItemPrice: initialState.selectedItemPrice,
+  setSelectedItemPrice: price => {
+    set({ selectedItemPrice: price });
+    localStorage.setItem('selectedItemPrice', price.toString());
   },
 }));
 
@@ -64,7 +51,7 @@ export const useCalendarStore = create<CalendarState>((set, get) => ({
   selectedDate: initialState.selectedDate,
   setSelectedDate: date => {
     set({ selectedDate: date });
-    localStorage.setItem('selectedDate', date.date().toString());
+    localStorage.setItem('selectedDate', date.unix().toString());
   },
 }));
 
