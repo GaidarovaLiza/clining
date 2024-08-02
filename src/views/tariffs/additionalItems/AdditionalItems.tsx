@@ -10,19 +10,18 @@ import style from './AdditionalItems.module.scss';
 export const AdditionalItems = () => {
   const { additionCleaningItems } = useContext(ScrollContext)!;
   const { addMaintenancePrice } = useRoomCountStore();
-  const { selectedItem, setSelectedItem } = useAdditionalItemsStore();
+  const { selectedItemPrice, setSelectedItemPrice } = useAdditionalItemsStore();
 
   useEffect(() => {
-    if (selectedItem) {
-      addMaintenancePrice(selectedItem);
+    if (selectedItemPrice) {
+      addMaintenancePrice(selectedItemPrice);
     }
-  }, [selectedItem, addMaintenancePrice]);
+  }, [selectedItemPrice, addMaintenancePrice]);
 
   const handleClick = (icon: any) => {
     const priceNumber = parseInt(icon.price.replace(/\s|руб/g, ''));
-    console.log('priceNumber ', priceNumber);
-    setSelectedItem(priceNumber);
-    console.log(selectedItem);
+    icon.isAdded = !icon.isAdded;
+    setSelectedItemPrice(priceNumber);
   };
 
   return (
@@ -36,7 +35,7 @@ export const AdditionalItems = () => {
             xs={0}
             sm={2}
             md={4}
-            className={selectedItem ? `${style.gridItem} ${style.selectedItem}` : style.gridItem}
+            className={icon.isAdded ? `${style.gridItem} ${style.selectedItem}` : style.gridItem}
           >
             <div className={style.link} onClick={() => handleClick(icon)}>
               <img className={style.img} src={icon.src} alt={icon.alt} />
