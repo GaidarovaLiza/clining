@@ -34,4 +34,16 @@
     flex-direction: column;
     gap: 20px;
   }
+
+  &_typography {
+    @media (width < 470px) {
+      font-size: 18px;
+    }
+  }
+}
+
+.tooltip {
+  &:global(.MuiChip-root) {
+    margin-top: 5px;
+  }
 }
