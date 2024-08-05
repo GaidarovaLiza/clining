@@ -33,11 +33,14 @@
 }
 
 .selectedItem {
-  background-color: #f5f5f5;
+  background-color: #bfe0ff;
 }
 
 .gridItem:hover {
   transform: scale(1.05);
+  @media (width < 500px) {
+    transform: none;
+  }
 }
 
 .link {

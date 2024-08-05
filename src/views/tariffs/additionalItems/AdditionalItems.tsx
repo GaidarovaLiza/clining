@@ -12,16 +12,14 @@ export const AdditionalItems = () => {
   const { addMaintenancePrice } = useRoomCountStore();
   const { selectedItemPrice, setSelectedItemPrice } = useAdditionalItemsStore();
 
-  useEffect(() => {
-    if (selectedItemPrice) {
-      addMaintenancePrice(selectedItemPrice);
-    }
-  }, [selectedItemPrice, addMaintenancePrice]);
+  useEffect(() => {}, [selectedItemPrice, addMaintenancePrice]);
 
   const handleClick = (icon: any) => {
     const priceNumber = parseInt(icon.price.replace(/\s|руб/g, ''));
-    icon.isAdded = !icon.isAdded;
     setSelectedItemPrice(priceNumber);
+
+    icon.isAdded ? addMaintenancePrice(-priceNumber) : addMaintenancePrice(priceNumber);
+    icon.isAdded = !icon.isAdded;
   };
 
   return (
