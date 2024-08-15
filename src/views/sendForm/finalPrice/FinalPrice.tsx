@@ -1,7 +1,7 @@
-import { useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DefaultButton } from 'components/defaultButton';
 import { Typography } from 'components/typography/Typography';
-import { useRoomCountStore } from 'store/store';
+import { useCalendarStore, useFormBodyStore, useRoomCountStore } from 'store/store';
 import { useMediaQuery } from 'react-responsive';
 import { declineChosenRoom, declineChosenBathroom } from 'utils/utils';
 import { Modal } from 'components/modal/Modal';
@@ -13,13 +13,51 @@ import style from './FinalPrice.module.scss';
 
 export const FinalPrice = () => {
   const { maintenancePrice, roomCount, bathRoomCount } = useRoomCountStore();
+  const { selectedDate } = useCalendarStore();
   const isDesktop = useMediaQuery({ minWidth: 1000 });
+  const { phone, name, setName, setPhone } = useFormBodyStore();
   const [open, setOpen] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
-  const [name, setName] = useState();
-  const [phoneNum, setPhoneNum] = useState();
+  const nameRef = useRef(name);
+  const phoneRef = useRef(phone);
 
   const buttonText = isDesktop ? 'Заказать' : `Заказать за ${maintenancePrice} BYN`;
+
+  const handlePhoneChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setPhone(event.target.value);
+  };
+
+  const handleNameChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setName(event.target.value);
+  };
+
+  useEffect(() => {
+    nameRef.current = name;
+    phoneRef.current = phone;
+  }, [name, phone]);
+
+  const body = useMemo(
+    () => ({
+      name: name,
+      phone: phone,
+      date: selectedDate.format('DD/MM/YYYY'),
+      roomCount: roomCount,
+      bathRoomCount: bathRoomCount,
+      finalPrice: maintenancePrice,
+    }),
+    [name, phone, selectedDate, roomCount, bathRoomCount, maintenancePrice]
+  );
+
+  const handleSendUserData = () => {
+    console.log('body', {
+      name: nameRef.current,
+      phone: phoneRef.current,
+      date: selectedDate.format('DD/MM/YYYY'),
+      roomCount: roomCount,
+      bathRoomCount: bathRoomCount,
+      finalPrice: maintenancePrice,
+    });
+  };
 
   return (
     <div className={style.wrapper}>
@@ -59,15 +97,15 @@ export const FinalPrice = () => {
         text={buttonText}
       />
       <Modal
-        buttons={<DefaultButton variant="fulfilled" text="Отправить" />}
-        subtitle=" Мы свяжемся с Вами в течении 15 минут"
+        buttons={<DefaultButton variant="fulfilled" text="Отправить" onClick={handleSendUserData} />}
+        subtitle=" Мы свяжемся с Вами в течении 15 минут для подтверждения заказа"
         open={open}
         header="Заполните форму для обратной связи:"
         onClose={() => setOpen(false)}
       >
         <div className={style.wrapper_modalWrapper}>
-          <Input variant="filled" label="Ваше имя:" value={name} onChange={e => {}} />
-          <Input variant="filled" label="Номер телефона:" value={phoneNum} onChange={e => {}} />
+          <Input variant="filled" label="Ваше имя:" value={name} onChange={handleNameChange} />
+          <Input variant="filled" label="Номер телефона:" value={phone} onChange={handlePhoneChange} />
         </div>
       </Modal>
     </div>
