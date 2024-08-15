@@ -1,3 +1,4 @@
+import { Phone } from '@mui/icons-material';
 import dayjs, { Dayjs } from 'dayjs';
 import { create } from 'zustand';
 
@@ -19,6 +20,13 @@ interface CalendarState {
 interface AdditionalItems {
   selectedItemPrice: number;
   setSelectedItemPrice: (price: number) => void;
+}
+
+interface FormBody {
+  phone: string;
+  setPhone: (phone: string) => void;
+  name: string;
+  setName: (name: string) => void;
 }
 
 const loadFromLocalStorage = () => {
@@ -44,6 +52,17 @@ export const useAdditionalItemsStore = create<AdditionalItems>((set, get) => ({
   setSelectedItemPrice: price => {
     set({ selectedItemPrice: price });
     localStorage.setItem('selectedItemPrice', price.toString());
+  },
+}));
+
+export const useFormBodyStore = create<FormBody>(set => ({
+  phone: '+375',
+  setPhone: phone => {
+    set({ phone });
+  },
+  name: '',
+  setName: name => {
+    set({ name });
   },
 }));
 

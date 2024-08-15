@@ -2,7 +2,6 @@
   "name": "my-app",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://GaidarovaLiza.github.io/clining",
   "dependencies": {
     "@emotion/react": "^11.13.0",
     "@emotion/styled": "^11.13.0",
@@ -39,9 +38,7 @@
     "eject": "craco eject",
     "format": "prettier --write \"**/*.{js,jsx,ts,tsx,json,css,scss,md}\"",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build",
-    "predeploy": "yarn run build",
-    "deploy": "gh-pages -d build"
+    "build-storybook": "storybook build"
   },
   "eslintConfig": {
     "extends": [
