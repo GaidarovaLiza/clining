@@ -24,7 +24,9 @@ export const AdditionalItems = () => {
 
   return (
     <div className={style.wrapper} ref={additionCleaningItems}>
-      <Typography variant="h1">Выберите опции для Вашей уборки:</Typography>
+      <Typography className={style.wrapper_text} variant="h1">
+        Выберите опции для Вашей уборки:
+      </Typography>
       <Grid className={style.grid} container spacing={1} columns={{ xs: 2, sm: 4, md: 12 }}>
         {iconList.map(icon => (
           <Grid

@@ -61,9 +61,11 @@ export const FinalPrice = () => {
 
   return (
     <div className={style.wrapper}>
-      <Typography variant="h2">
-        {`Вы выбрали уборку ${roomCount} ${declineChosenRoom(roomCount)}, ${bathRoomCount} ${declineChosenBathroom(bathRoomCount)}, кухни и коридора`}
-      </Typography>
+      <div className={style.wrapper_textInfo}>
+        <Typography variant="h2">
+          {`Вы выбрали уборку ${roomCount} ${declineChosenRoom(roomCount)}, ${bathRoomCount} ${declineChosenBathroom(bathRoomCount)}, кухни и коридора`}
+        </Typography>
+      </div>
       <div className={style.wrapper_info}>
         <Typography className={style.wrapper_typography} variant="medium_s">
           Что входит в уборку квартиры

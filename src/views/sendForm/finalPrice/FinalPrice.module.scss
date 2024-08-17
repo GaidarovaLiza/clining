@@ -7,6 +7,13 @@
     display: flex;
     gap: 10px;
     align-items: center;
+    justify-content: center;
+  }
+
+  &_textInfo {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
   }
 
   &_button {
@@ -36,6 +43,7 @@
   }
 
   &_typography {
+    text-align: center;
     @media (width < 470px) {
       font-size: 18px;
     }
