@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DefaultButton } from 'components/defaultButton';
 import { Typography } from 'components/typography/Typography';
-import { useCalendarStore, useFormBodyStore, useRoomCountStore } from 'store/store';
+import { useCalendarStore, useFormBodyStore, useRoomCountStore, loadFromLocalStorage } from 'store/store';
 import { useMediaQuery } from 'react-responsive';
 import { declineChosenRoom, declineChosenBathroom } from 'utils/utils';
 import { Modal } from 'components/modal/Modal';
@@ -12,7 +12,7 @@ import { ClickAwayListener, Tooltip } from '@mui/material';
 import style from './FinalPrice.module.scss';
 
 export const FinalPrice = () => {
-  const { maintenancePrice, roomCount, bathRoomCount } = useRoomCountStore();
+  const { maintenancePrice, roomCount, bathRoomCount, calculateMaintenancePrice } = useRoomCountStore();
   const { selectedDate } = useCalendarStore();
   const isDesktop = useMediaQuery({ minWidth: 1000 });
   const { phone, name, setName, setPhone } = useFormBodyStore();
@@ -35,6 +35,11 @@ export const FinalPrice = () => {
     nameRef.current = name;
     phoneRef.current = phone;
   }, [name, phone]);
+
+  useEffect(() => {
+    loadFromLocalStorage();
+    calculateMaintenancePrice();
+  }, []);
 
   const body = useMemo(
     () => ({
