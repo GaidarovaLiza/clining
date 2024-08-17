@@ -20,6 +20,8 @@ interface CalendarState {
 interface AdditionalItems {
   selectedItemPrice: number;
   setSelectedItemPrice: (price: number) => void;
+  additionalItemsList: string[];
+  addAdditionalItem: (item: string) => void;
 }
 
 interface FormBody {
@@ -48,6 +50,11 @@ const initialState = loadFromLocalStorage();
 
 export const useAdditionalItemsStore = create<AdditionalItems>((set, get) => ({
   selectedItemPrice: initialState.selectedItemPrice,
+  additionalItemsList: [],
+  addAdditionalItem: (item: string) => {
+    const newAdditionalItemsList = [...get().additionalItemsList, item];
+    set({ additionalItemsList: newAdditionalItemsList });
+  },
   setSelectedItemPrice: price => {
     set({ selectedItemPrice: price });
     localStorage.setItem('selectedItemPrice', price.toString());

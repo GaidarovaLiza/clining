@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { DefaultButton } from 'components/defaultButton';
 import { Typography } from 'components/typography/Typography';
-import { useCalendarStore, useFormBodyStore, useRoomCountStore, loadFromLocalStorage } from 'store/store';
+import {
+  useCalendarStore,
+  useFormBodyStore,
+  useRoomCountStore,
+  loadFromLocalStorage,
+  useAdditionalItemsStore,
+} from 'store/store';
 import { useMediaQuery } from 'react-responsive';
 import { declineChosenRoom, declineChosenBathroom } from 'utils/utils';
 import { Modal } from 'components/modal/Modal';
@@ -10,9 +16,11 @@ import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { ClickAwayListener, Tooltip } from '@mui/material';
 
 import style from './FinalPrice.module.scss';
+import { AdditionalItems } from 'views/tariffs/additionalItems';
 
 export const FinalPrice = () => {
   const { maintenancePrice, roomCount, bathRoomCount, calculateMaintenancePrice } = useRoomCountStore();
+  const { additionalItemsList } = useAdditionalItemsStore();
   const { selectedDate } = useCalendarStore();
   const isDesktop = useMediaQuery({ minWidth: 1000 });
   const { phone, name, setName, setPhone } = useFormBodyStore();
@@ -41,18 +49,6 @@ export const FinalPrice = () => {
     calculateMaintenancePrice();
   }, []);
 
-  const body = useMemo(
-    () => ({
-      name: name,
-      phone: phone,
-      date: selectedDate.format('DD/MM/YYYY'),
-      roomCount: roomCount,
-      bathRoomCount: bathRoomCount,
-      finalPrice: maintenancePrice,
-    }),
-    [name, phone, selectedDate, roomCount, bathRoomCount, maintenancePrice]
-  );
-
   const handleSendUserData = () => {
     console.log('body', {
       name: nameRef.current,
@@ -61,6 +57,7 @@ export const FinalPrice = () => {
       roomCount: roomCount,
       bathRoomCount: bathRoomCount,
       finalPrice: maintenancePrice,
+      additionalItems: additionalItemsList,
     });
   };
 

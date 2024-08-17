@@ -10,16 +10,18 @@ import style from './AdditionalItems.module.scss';
 export const AdditionalItems = () => {
   const { additionCleaningItems } = useContext(ScrollContext)!;
   const { addMaintenancePrice } = useRoomCountStore();
-  const { selectedItemPrice, setSelectedItemPrice } = useAdditionalItemsStore();
+  const { selectedItemPrice, setSelectedItemPrice, addAdditionalItem } = useAdditionalItemsStore();
 
   useEffect(() => {}, [selectedItemPrice, addMaintenancePrice]);
 
-  const handleClick = (icon: any) => {
-    const priceNumber = parseInt(icon.price.replace(/\s|руб/g, ''));
+  const handleClick = (item: any) => {
+    const priceNumber = parseInt(item.price.replace(/\s|руб/g, ''));
     setSelectedItemPrice(priceNumber);
 
-    icon.isAdded ? addMaintenancePrice(-priceNumber) : addMaintenancePrice(priceNumber);
-    icon.isAdded = !icon.isAdded;
+    addAdditionalItem(item.text);
+
+    item.isAdded ? addMaintenancePrice(-priceNumber) : addMaintenancePrice(priceNumber);
+    item.isAdded = !item.isAdded;
   };
 
   return (
