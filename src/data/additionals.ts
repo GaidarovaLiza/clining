@@ -86,7 +86,7 @@ export const iconList = [
     id: 10,
     src: Cabinets,
     alt: 'Cabinets',
-    text: 'УБЕРЕМ В КУХОННЫХ ШКАФАХ',
+    text: 'УБЕРЕМ В ШКАФЧИКАХ',
     price: '15 руб',
     isAdded: false,
   },

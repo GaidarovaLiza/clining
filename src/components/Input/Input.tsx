@@ -1,6 +1,7 @@
 import TextField from '@mui/material/TextField';
 
 export type InputProps = {
+  name?: string;
   variant: 'outlined' | 'filled' | 'standard';
   value: string;
   onChange: (event: React.ChangeEvent<HTMLInputElement>) => void;
@@ -8,7 +9,7 @@ export type InputProps = {
   inputProps?: { [key: string]: any };
 };
 
-export const Input = ({ variant, onChange, value, label, inputProps }: InputProps) => {
+export const Input = ({ variant, name, onChange, value, label, inputProps }: InputProps) => {
   const handleInputChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const inputValue = event.target.value;
     let newValue = inputValue;
@@ -31,6 +32,7 @@ export const Input = ({ variant, onChange, value, label, inputProps }: InputProp
       value={value}
       onChange={handleInputChange}
       inputProps={inputProps}
+      name={name}
     />
   );
 };

@@ -7,6 +7,10 @@
   &_text {
     text-align: center;
   }
+
+  @media (width < 450px) {
+    padding-bottom: 55px;
+  }
 }
 
 .grid {

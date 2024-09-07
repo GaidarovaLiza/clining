@@ -14,9 +14,10 @@ import { Modal } from 'components/modal/Modal';
 import { Input } from 'components/Input';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
 import { ClickAwayListener, Tooltip } from '@mui/material';
+import { AdditionalItems } from 'views/tariffs/additionalItems';
+import emailjs from '@emailjs/browser';
 
 import style from './FinalPrice.module.scss';
-import { AdditionalItems } from 'views/tariffs/additionalItems';
 
 export const FinalPrice = () => {
   const { maintenancePrice, roomCount, bathRoomCount, calculateMaintenancePrice } = useRoomCountStore();
@@ -28,6 +29,7 @@ export const FinalPrice = () => {
   const [showTooltip, setShowTooltip] = useState(false);
   const nameRef = useRef(name);
   const phoneRef = useRef(phone);
+  const form = useRef();
 
   const buttonText = isDesktop ? 'Заказать' : `Заказать за ${maintenancePrice} BYN`;
 
@@ -50,15 +52,30 @@ export const FinalPrice = () => {
   }, []);
 
   const handleSendUserData = () => {
-    console.log('body', {
-      name: nameRef.current,
-      phone: phoneRef.current,
-      date: selectedDate.format('DD/MM/YYYY'),
-      roomCount: roomCount,
-      bathRoomCount: bathRoomCount,
-      finalPrice: maintenancePrice,
-      additionalItems: additionalItemsList,
-    });
+    console.log('form', form.current);
+
+    emailjs
+      .sendForm('service_233ymmh', 'template_x00wonb', form.current, {
+        publicKey: 't7K2Fg96vesQITtfN',
+      })
+      .then(
+        () => {
+          console.log('SUCCESS!');
+        },
+        error => {
+          console.log('FAILED...', error.text);
+        }
+      );
+  };
+
+  const body = {
+    name: nameRef.current,
+    phone: phoneRef.current,
+    date: selectedDate.format('DD/MM/YYYY'),
+    roomCount: roomCount,
+    bathRoomCount: bathRoomCount,
+    finalPrice: maintenancePrice,
+    additionalItems: additionalItemsList,
   };
 
   return (
@@ -107,10 +124,17 @@ export const FinalPrice = () => {
         header="Заполните форму для обратной связи:"
         onClose={() => setOpen(false)}
       >
-        <div className={style.wrapper_modalWrapper}>
-          <Input variant="filled" label="Ваше имя:" value={name} onChange={handleNameChange} />
-          <Input variant="filled" label="Номер телефона:" value={phone} onChange={handlePhoneChange} />
-        </div>
+        <form className={style.wrapper_modalWrapper} ref={form}>
+          <Input name="from_name" variant="filled" label="Ваше имя:" value={name} onChange={handleNameChange} />
+          <Input
+            name="from_phone"
+            variant="filled"
+            label="Номер телефона:"
+            value={phone}
+            onChange={handlePhoneChange}
+          />
+          <input type="hidden" name="message" value={JSON.stringify(body)} />
+        </form>
       </Modal>
     </div>
   );
