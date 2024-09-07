@@ -1,4 +1,5 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { useMediaQuery } from 'react-responsive';
 import { DefaultButton } from 'components/defaultButton';
 import { Typography } from 'components/typography/Typography';
 import {
@@ -8,25 +9,29 @@ import {
   loadFromLocalStorage,
   useAdditionalItemsStore,
 } from 'store/store';
-import { useMediaQuery } from 'react-responsive';
 import { declineChosenRoom, declineChosenBathroom } from 'utils/utils';
 import { Modal } from 'components/modal/Modal';
 import { Input } from 'components/Input';
 import HelpOutlineIcon from '@mui/icons-material/HelpOutline';
+import Alert from '@mui/material/Alert';
 import { ClickAwayListener, Tooltip } from '@mui/material';
-import { AdditionalItems } from 'views/tariffs/additionalItems';
 import emailjs from '@emailjs/browser';
 
 import style from './FinalPrice.module.scss';
 
 export const FinalPrice = () => {
   const { maintenancePrice, roomCount, bathRoomCount, calculateMaintenancePrice } = useRoomCountStore();
+  const { phone, name, setName, setPhone } = useFormBodyStore();
   const { additionalItemsList } = useAdditionalItemsStore();
   const { selectedDate } = useCalendarStore();
+
   const isDesktop = useMediaQuery({ minWidth: 1000 });
-  const { phone, name, setName, setPhone } = useFormBodyStore();
+
   const [open, setOpen] = useState(false);
+  const [showSuccessAlert, setShowSuccessAlert] = useState(false);
+  const [showErrorAlert, setShowErrorAlert] = useState(false);
   const [showTooltip, setShowTooltip] = useState(false);
+
   const nameRef = useRef(name);
   const phoneRef = useRef(phone);
   const form = useRef();
@@ -52,18 +57,16 @@ export const FinalPrice = () => {
   }, []);
 
   const handleSendUserData = () => {
-    console.log('form', form.current);
-
     emailjs
       .sendForm('service_233ymmh', 'template_x00wonb', form.current, {
         publicKey: 't7K2Fg96vesQITtfN',
       })
       .then(
         () => {
-          console.log('SUCCESS!');
+          setShowSuccessAlert(true);
         },
         error => {
-          console.log('FAILED...', error.text);
+          setShowErrorAlert(true);
         }
       );
   };
@@ -135,6 +138,8 @@ export const FinalPrice = () => {
           />
           <input type="hidden" name="message" value={JSON.stringify(body)} />
         </form>
+        {showSuccessAlert && <Alert severity="success">Заяка успешно отправленна</Alert>}
+        {showErrorAlert && <Alert severity="error">Ошибка в отправке данных</Alert>}
       </Modal>
     </div>
   );
