@@ -20,6 +20,8 @@ interface CalendarState {
 interface AdditionalItems {
   selectedItemPrice: number;
   setSelectedItemPrice: (price: number) => void;
+  additionalItemsList: string[];
+  addAdditionalItem: (item: string) => void;
 }
 
 interface FormBody {
@@ -29,17 +31,16 @@ interface FormBody {
   setName: (name: string) => void;
 }
 
-const loadFromLocalStorage = () => {
+export const loadFromLocalStorage = () => {
   const roomCountStr = localStorage.getItem('roomCount');
   const bathRoomCountStr = localStorage.getItem('bathRoomCount');
-  const maintenancePriceStr = localStorage.getItem('maintenancePrice');
   const selectedDateStr = localStorage.getItem('selectedDate');
   const selectedItemPriceStr = localStorage.getItem('selectedItemPrice');
 
   return {
     roomCount: roomCountStr ? parseInt(roomCountStr) : 1,
     bathRoomCount: bathRoomCountStr ? parseInt(bathRoomCountStr) : 1,
-    maintenancePrice: maintenancePriceStr ? parseInt(maintenancePriceStr) : 0,
+    maintenancePrice: 0,
     selectedDate: selectedDateStr ? dayjs.unix(parseInt(selectedDateStr)) : null,
     selectedItemPrice: selectedItemPriceStr ? parseInt(selectedItemPriceStr) : null,
   };
@@ -49,6 +50,11 @@ const initialState = loadFromLocalStorage();
 
 export const useAdditionalItemsStore = create<AdditionalItems>((set, get) => ({
   selectedItemPrice: initialState.selectedItemPrice,
+  additionalItemsList: [],
+  addAdditionalItem: (item: string) => {
+    const newAdditionalItemsList = [...get().additionalItemsList, item];
+    set({ additionalItemsList: newAdditionalItemsList });
+  },
   setSelectedItemPrice: price => {
     set({ selectedItemPrice: price });
     localStorage.setItem('selectedItemPrice', price.toString());
@@ -82,7 +88,7 @@ export const useRoomCountStore = create<RoomCountState>((set, get) => ({
     get().calculateMaintenancePrice();
   },
   bathRoomCount: initialState.bathRoomCount,
-  maintenancePrice: initialState.maintenancePrice,
+  maintenancePrice: 0,
   setBathRoomCount: count => {
     set({ bathRoomCount: count });
     localStorage.setItem('bathRoomCount', count.toString());
