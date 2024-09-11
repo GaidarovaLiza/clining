@@ -1,1 +1,1 @@
-export * from './MaintenanceClinig';
+export * from './AboutUs';

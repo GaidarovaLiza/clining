@@ -7,10 +7,10 @@ import style from './SelectClining.module.scss';
 export const SelectClining = () => {
   const [general, setGeneral] = useState(false);
   const [supportive, setSupportive] = useState(false);
-  const { generalCleaningRef } = useContext(ScrollContext)!;
+  const { aboutUsInfoRef } = useContext(ScrollContext)!;
 
   const scrollToGeneralCleaning = () => {
-    generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    aboutUsInfoRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (

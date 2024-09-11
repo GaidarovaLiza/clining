@@ -1,14 +1,12 @@
-import { useContext, useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { Grid } from '@mui/material';
 import { Typography } from 'components/typography/Typography';
 import { iconList } from 'data/additionals';
-import { ScrollContext } from 'context/ScrollContext';
 import { useAdditionalItemsStore, useRoomCountStore } from 'store/store';
 
 import style from './AdditionalItems.module.scss';
 
 export const AdditionalItems = () => {
-  const { additionCleaningItems } = useContext(ScrollContext)!;
   const { addMaintenancePrice } = useRoomCountStore();
   const { selectedItemPrice, setSelectedItemPrice, addAdditionalItem } = useAdditionalItemsStore();
 
@@ -25,7 +23,7 @@ export const AdditionalItems = () => {
   };
 
   return (
-    <div className={style.wrapper} ref={additionCleaningItems}>
+    <div className={style.wrapper}>
       <Typography className={style.wrapper_text} variant="h1">
         Выберите опции для Вашей уборки:
       </Typography>
