@@ -32,16 +32,16 @@ export const iconData = [
 
 export const Header = () => {
   const [openDrawer, setOpenDrawer] = useState(false);
-  const { generalCleaningRef, additionCleaningItems } = useContext(ScrollContext)!;
+  const { aboutUsInfoRef, cliningInfoRef } = useContext(ScrollContext)!;
 
-  const scrollToGeneralCleaning = () => {
+  const scrollToAboutUs = () => {
     setOpenDrawer(false);
-    generalCleaningRef?.current?.scrollIntoView({ behavior: 'smooth' });
+    aboutUsInfoRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
-  const scrollToAdditionCleaningItems = () => {
+  const scrollToCleaningInfo = () => {
     setOpenDrawer(false);
-    additionCleaningItems?.current?.scrollIntoView({ behavior: 'smooth' });
+    cliningInfoRef?.current?.scrollIntoView({ behavior: 'smooth' });
   };
 
   return (
@@ -55,10 +55,7 @@ export const Header = () => {
               }}
               className={style.paper}
             >
-              <MobileContent
-                onScrollDownToGeneralCleaning={scrollToGeneralCleaning}
-                onScrollDownToAdditionItems={scrollToAdditionCleaningItems}
-              />
+              <MobileContent scrollToCleaningInfo={scrollToCleaningInfo} scrollToAboutUs={scrollToAboutUs} />
             </Paper>
           </Box>
         </Drawer>
@@ -83,7 +80,7 @@ export const Header = () => {
             >
               <MenuIcon fontSize="large" />
             </IconButton>
-            <Link>
+            <Link style={{ textDecoration: 'none' }}>
               <Typography className={style.mobileContent} children={'+375 29 181 5595'} variant="h3" />
             </Link>
             {iconData.map(icon => (
