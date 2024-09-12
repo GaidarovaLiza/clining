@@ -3,11 +3,13 @@ import Fridge from '../assets/fridge.png';
 import Dish from '../assets/dish.png';
 import Balcony from '../assets/balcony.png';
 import Cat from '../assets/cat.png';
-import Microwave from '../assets/microwave.png';
+import CleanDoor from '../assets/clean-door.png';
 import Hood from '../assets/hood.png';
 import Four from '../assets/four.png';
 import Window from '../assets/window.png';
 import Cabinets from '../assets/cabinets.png';
+import Key from '../assets/key.png';
+import Curtains from '../assets/curtains.png';
 
 export const iconList = [
   {
@@ -44,9 +46,9 @@ export const iconList = [
   },
   {
     id: 5,
-    src: Microwave,
-    alt: 'Microwave',
-    text: 'ПОМОЕМ МИКРОВОЛНОВКУ',
+    src: Key,
+    alt: 'Key',
+    text: 'ДОСТАВИМ КЛЮЧИ',
     price: '15 руб',
     isAdded: false,
   },
@@ -87,6 +89,22 @@ export const iconList = [
     src: Cabinets,
     alt: 'Cabinets',
     text: 'УБЕРЕМ В ШКАФЧИКАХ',
+    price: '15 руб',
+    isAdded: false,
+  },
+  {
+    id: 11,
+    src: CleanDoor,
+    alt: 'CleanDoor',
+    text: 'ВЫМОЕМ ДВЕРИ',
+    price: '15 руб',
+    isAdded: false,
+  },
+  {
+    id: 12,
+    src: Curtains,
+    alt: 'Curtains',
+    text: 'ПОСТИРАЕМ ШТОРЫ',
     price: '15 руб',
     isAdded: false,
   },
