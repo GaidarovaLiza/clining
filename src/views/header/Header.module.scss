@@ -24,6 +24,12 @@
   }
 }
 
+.iconRow {
+  display: flex;
+  gap: 4px;
+  margin: 5px 10px 0 15px;
+}
+
 .logo {
   padding: 0.8vw 1vw;
   margin-left: 5%;
@@ -68,7 +74,13 @@
   }
 }
 
+.number {
+  width: 120px;
+}
+
 .mobileContent {
+  height: 50px;
+  width: 50px;
   @media (width < 600px) {
     display: none;
   }

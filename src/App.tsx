@@ -8,6 +8,7 @@ import { useRef } from 'react';
 import { ScrollContext } from './context/ScrollContext';
 
 import style from './App.module.css';
+import { Footer } from 'views/footer';
 
 function App() {
   const aboutUsInfoRef = useRef<HTMLDivElement>(null);
@@ -26,6 +27,7 @@ function App() {
                   <Main />
                   <AddCountForm />
                   <Info />
+                  <Footer />
                 </>
               }
             />

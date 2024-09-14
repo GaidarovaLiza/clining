@@ -3,9 +3,9 @@ import { AppBar, Box, Drawer, IconButton, Link, Paper } from '@mui/material';
 import MenuIcon from '@mui/icons-material/Menu';
 import { ScrollContext } from 'context/ScrollContext';
 import { Icon } from './Icon/Icon';
-import loonIcon from 'assets/loon-icon.svg';
-import viberIcon from 'assets/viber-icon.svg';
-import whatsApp from 'assets/whatsapp-icon.svg';
+import loonIcon from 'assets/telegram_3536661.png';
+import viberIcon from 'assets/viber_3955062.png';
+import whatsApp from 'assets//whatsapp_3536445.png';
 import logo from 'assets/full-logo.png';
 import { Typography } from 'components/typography/Typography';
 import { MobileContent } from './mobileContent/MobileContent';
@@ -81,11 +81,17 @@ export const Header = () => {
               <MenuIcon fontSize="large" />
             </IconButton>
             <Link style={{ textDecoration: 'none' }}>
-              <Typography className={style.mobileContent} children={'+375 29 181 5595'} variant="h3" />
+              <Typography
+                className={`${style.mobileContent}${style.number}`}
+                children={'+375 29 181 5595'}
+                variant="h3"
+              />
             </Link>
-            {iconData.map(icon => (
-              <Icon key={icon.src} className={style.mobileContent} src={icon.src} alt={icon.alt} href={icon.href} />
-            ))}
+            <div className={style.iconRow}>
+              {iconData.map(icon => (
+                <Icon key={icon.src} className={style.mobileContent} src={icon.src} alt={icon.alt} href={icon.href} />
+              ))}
+            </div>
           </div>
         </div>
       </div>

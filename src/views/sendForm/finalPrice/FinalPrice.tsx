@@ -63,6 +63,7 @@ export const FinalPrice = () => {
       })
       .then(
         () => {
+          localStorage.removeItem('additionalItemsList');
           setShowSuccessAlert(true);
         },
         error => {
@@ -73,7 +74,6 @@ export const FinalPrice = () => {
 
   const body = {
     name: nameRef.current,
-    phone: phoneRef.current,
     date: selectedDate.format('DD/MM/YYYY'),
     roomCount: roomCount,
     bathRoomCount: bathRoomCount,

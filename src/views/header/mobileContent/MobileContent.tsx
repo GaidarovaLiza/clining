@@ -23,7 +23,7 @@ export const MobileContent = ({ scrollToCleaningInfo, scrollToAboutUs }: MobileC
           +375 29 181 5595
         </Typography>
       </Link>
-      <div>
+      <div className={style.iconContainer}>
         {iconData.map(icon => (
           <Icon key={icon.alt} className={style.wrapper_mobileContent} src={icon.src} alt={icon.alt} href={icon.href} />
         ))}
